@@ -1,0 +1,24 @@
+<div class="top-bar">
+  <div class="contact-info">
+    {% if contactInfo.phone %}
+    <a href="tel:{{ contactInfo.phone }}" class="contact-item phone">
+      <span class="icon-wrapper">{{ contactInfo.phone_icon|raw }}</span>
+      <span class="text">{{ contactInfo.phone }}</span>
+    </a>
+    {% endif %}
+    {% if contactInfo.email %}
+    <a href="mailto:{{ contactInfo.email }}" class="contact-item email">
+      <span class="icon-wrapper">{{ contactInfo.email_icon|raw }}</span>
+      <span class="text">{{ contactInfo.email }}</span>
+    </a>
+    {% endif %}
+  </div>
+  <div class="social-media">
+    {% for item in socialMedia %}
+    <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="social-icon {{ item.platform }}">
+      <span class="icon-wrapper">{{ item.icon|raw }}</span>
+      <span class="sr-only">Visit our {{ item.platform|capitalize }} page</span>
+    </a>
+    {% endfor %}
+  </div>
+</div>

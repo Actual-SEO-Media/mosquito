@@ -1,6 +1,6 @@
 .menu {
   backface-visibility: hidden;
-  background-color: var(--color-background);
+  background-color: var(--dark-green);
   block-size: calc(100% - var(--navigation-height));
   inline-size: 100%;
   inset-block-start: var(--navigation-height);
@@ -23,7 +23,7 @@
   }
 
   .link {
-    color: var(--color-text);
+    color: white;
     display: block;
     font-size: 1.25rem;
     padding-block: 0.9rem;
@@ -33,7 +33,7 @@
 
   .current-menu-item {
     .link {
-      color: var(--color-accent);
+      color: var(--text-yellow);
       text-decoration: underline;
     }
   }

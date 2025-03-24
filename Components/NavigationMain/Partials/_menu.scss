@@ -4,9 +4,10 @@
   list-style: none;
   margin-inline-end: -1rem;
   padding-inline-start: 2rem;
+  font-weight: 600;
 
   .link {
-    color: currentColor;
+    color: white;
     display: inline-block;
     padding-block: 0.5rem;
     padding-inline: 0.75rem;
@@ -15,13 +16,14 @@
     will-change: color;
 
     &:hover {
-      color: var(--color-accent);
+          opacity: 1;
     }
   }
 
   .current-menu-item {
     .link {
-      color: var(--color-accent);
+      color: var(--text-yellow);
+
       text-decoration: underline;
     }
   }

@@ -97,6 +97,19 @@ class Asset
         return false;
     }
 
+    public static function getIcon(string $name): string
+{
+    $iconPath = get_template_directory() . "/assets/icons/{$name}.svg";
+
+    if (file_exists($iconPath)) {
+        return file_get_contents($iconPath);
+    }
+
+    return '';
+}
+
+
+
     /**
      * Checks if the current environment is a Vite dev server.
      */
