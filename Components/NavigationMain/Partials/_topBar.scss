@@ -4,11 +4,11 @@ $default-gap: 0.625rem;
 $icon-size: 18px;
 
 .top-bar {
+  align-items: center;
+  background-color: $light-bg;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: $default-gap $default-gap * 2;
-  background-color: $light-bg;
 
   .contact-info {
     display: flex;
@@ -20,24 +20,24 @@ $icon-size: 18px;
     gap: $default-gap;
 
     .social-icon {
-      margin-left: $default-gap;
           color: var(--text-dark-green);
+      margin-left: $default-gap;
 
     }
   }
 
   .contact-item {
-    display: inline-flex;
     align-items: center;
+    display: inline-flex;
 
     .icon-wrapper {
-      display: inline-flex;
       align-items: center;
+      display: inline-flex;
       margin-right: $default-gap * 0.8;
 
       svg {
-        width: $icon-size;
         height: $icon-size;
+        width: $icon-size;
       }
     }
 
@@ -48,7 +48,7 @@ $icon-size: 18px;
   }
 
   a {
-    text-decoration: none;
     color: $text-color;
+    text-decoration: none;
   }
 }

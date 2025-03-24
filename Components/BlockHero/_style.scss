@@ -5,15 +5,15 @@ $accent-color: #f3d250;
 
 flynt-component[name='BlockHero'] {
   * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
   }
 
   .hero-container {
     background-color: $primary-color;
-    color: white;
+    color: #fff;
     padding: 80px 10%;
   }
 
@@ -58,23 +58,23 @@ flynt-component[name='BlockHero'] {
 
     p {
       font-size: 18px;
-      max-width: 600px;
       line-height: 1.5;
       margin-top: 20px;
+      max-width: 600px;
     }
 
     .highlight {
-      position: relative;
       display: inline-block;
+      position: relative;
 
       &::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 8px;
         background-color: $accent-color;
         bottom: 5px;
+        content: '';
+        height: 8px;
         left: 0;
+        position: absolute;
+        width: 100%;
         z-index: 1;
       }
     }
@@ -92,26 +92,26 @@ flynt-component[name='BlockHero'] {
 
   .primary-btn {
     background-color: $accent-color;
+    border: 0;
     color: $primary-color;
-    padding: 15px 30px;
-    border: none;
-    font-weight: bold;
     cursor: pointer;
     display: inline-block;
-    text-decoration: none;
+    font-weight: bold;
+    padding: 15px 30px;
     text-align: center;
+    text-decoration: none;
   }
 
   .secondary-btn {
     background-color: transparent;
-    color: white;
-    padding: 15px 30px;
-    border: 1px solid white;
-    font-weight: bold;
+    border: 1px solid #fff;
+    color: #fff;
     cursor: pointer;
     display: inline-block;
-    text-decoration: none;
+    font-weight: bold;
+    padding: 15px 30px;
     text-align: center;
+    text-decoration: none;
   }
 
   .figure {
@@ -120,10 +120,10 @@ flynt-component[name='BlockHero'] {
   }
 
   .hero-image {
-    width: 100%;
     height: auto;
-    object-fit: cover;
     max-height: 400px;
+    object-fit: cover;
+    width: 100%;
   }
 
   // Theme variations
@@ -134,14 +134,14 @@ flynt-component[name='BlockHero'] {
     }
 
     .secondary-btn {
-      color: $primary-color;
       border-color: $primary-color;
+      color: $primary-color;
     }
   }
 
   &[data-theme="dark"] {
     .hero-container {
-      background-color: darken($primary-color, 5%);
+      background-color: color.adjust($primary-color, -5%);
     }
   }
 }
