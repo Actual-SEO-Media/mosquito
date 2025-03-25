@@ -78,7 +78,7 @@
       "selector-max-compound-selectors": 4,
       "selector-no-qualifying-type": null,
       "order/properties-alphabetical-order": true,
-      "liberty/use-logical-spec": true
+      "liberty/use-logical-spec": null
     },
     "ignoreFiles": [
       "dist/**",

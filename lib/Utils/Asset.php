@@ -97,16 +97,22 @@ class Asset
         return false;
     }
 
+    /**
+     * return icon url.
+     *
+     * @param string $name The filename of icon.
+     * @return string|false
+     */
     public static function getIcon(string $name): string
-{
-    $iconPath = get_template_directory() . "/assets/icons/{$name}.svg";
+    {
+        $iconPath = get_template_directory() . "/assets/icons/{$name}.svg";
 
-    if (file_exists($iconPath)) {
-        return file_get_contents($iconPath);
+        if (file_exists($iconPath)) {
+            return file_get_contents($iconPath);
+        }
+
+        return '';
     }
-
-    return '';
-}
 
 
 

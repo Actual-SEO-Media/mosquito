@@ -1,0 +1,15 @@
+<flynt-component name="FAQ" load:on="visible">
+    <div class="faq" data-ref="faq">
+        {% for item in items %}
+            <div class="faq-item">
+                <div class="faq-title">
+                    <h5>{{ item.title }}</h5>
+                    <span class="faq-plus"></span>
+                </div>
+                <div class="faq-content">
+                    {{ item.content|e('wp_kses_post') }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</flynt-component>

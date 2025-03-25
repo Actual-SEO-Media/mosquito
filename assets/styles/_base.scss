@@ -61,8 +61,8 @@ h4,
   font-size: 1.75rem;
   line-height: 1.4;
 
-  @media (min-width: $breakpoint-mobile-horizontal) {
-  }
+  // @media (min-width: $breakpoint-mobile-horizontal) {
+  // }
 }
 
 h5,
@@ -70,8 +70,8 @@ h5,
   font-size: 1.25rem;
   line-height: 1.5;
 
-  @media (min-width: $breakpoint-mobile-horizontal) {
-  }
+  // @media (min-width: $breakpoint-mobile-horizontal) {
+  // }
 }
 
 h6,
@@ -548,17 +548,18 @@ flynt-component {
 }
 
 .social-icon svg {
-  width: 18px;
   height: 18px;
+  width: 18px;
 }
+
 .sr-only {
-  position: absolute;
-  width: 1px;
+  border-width: 0;
+  clip: rect(0, 0, 0, 0);
   height: 1px;
-  padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  padding: 0;
+  position: absolute;
   white-space: nowrap;
-  border-width: 0;
+  width: 1px;
 }
