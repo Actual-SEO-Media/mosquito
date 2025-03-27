@@ -1,7 +1,7 @@
 flynt-component[name='NavigationMain']  {
   --navigation-height: 76px;
-  --top-bar-height: 35px;
-  --total-height: calc(var(--navigation-height) + var(--top-bar-height));
+  --top-bar-height: 35px; /* Reduced height for the top bar */
+  --total-height: calc(var(--navigation-height) + var(--top-bar-height)); /* Calculate total component height */
   display: none;
   font-size: var(--font-size-body-small);
   text-transform: uppercase;
@@ -14,19 +14,24 @@ flynt-component[name='NavigationMain']  {
     background-color: var(--dark-green);
     block-size: var(--navigation-height);
     border-block-end: solid 1px #b9e1c64d;
-    position: relative;
-    z-index: 10;
+    position: sticky;
+    top: 0;
+    inset-block-start: unset;
+    inset-inline: unset;
+    z-index: 100;
+
+    /* Add spacing for admin bar when present */
+    .admin-bar & {
+      top: var(--wp-admin--admin-bar--height, 0);
+    }
   }
 
+  /* Wrapper for both elements */
   .navigation-wrapper {
-    block-size: var(--total-height);
-    inset-block-start: 0;
-    inset-inline: 0;
     position: relative;
 
-    .admin-bar & {
-      inset-block-start: var(--wp-admin--admin-bar--height);
-    }
+    /* No need for fixed positioning since navigation is now sticky */
+    /* The top bar will scroll normally while navigation sticks */
   }
 
   .container {
@@ -40,4 +45,5 @@ flynt-component[name='NavigationMain']  {
   @import 'Partials/menu';
   @import 'Partials/topBar';
 
+  /* No additional top-bar styling needed here - moved to _topBar.scss */
 }

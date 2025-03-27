@@ -8,8 +8,8 @@ $icon-size: 18px;
   background-color: $light-bg;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem $default-gap * 2; /* Reduced padding for less height */
-  min-height: var(--top-bar-height, 35px); /* Reduced min-height */
+  padding: 0.5rem $default-gap * 2;
+  min-height: var(--top-bar-height, 35px);
 
   .contact-info {
     display: flex;
