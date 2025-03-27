@@ -1,0 +1,42 @@
+<flynt-component name="ServiceHero" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+  <div class="serviceHero" {% if backgroundImage %}data-has-background="true"{% endif %}>
+    {% if backgroundImage %}
+      <div class="serviceHero-background">
+        {% if backgroundImage.post_mime_type == 'image/svg+xml' %}
+          <img
+            class="serviceHero-image-svg lazyload"
+            src="{{ placeholderImage(backgroundImage.width, backgroundImage.height, 'rgba(125, 125, 125, 0.1)') }}"
+            width="{{ backgroundImage.width }}"
+            height="{{ backgroundImage.height }}"
+            data-src="{{ backgroundImage.src }}"
+            alt="{{ backgroundImage.alt|e }}">
+        {% else %}
+          <img
+            class="serviceHero-image lazyload"
+            src="{{ backgroundImage.src|resizeDynamic(768) }}"
+            width="{{ backgroundImage.width }}"
+            height="{{ backgroundImage.height }}"
+            srcset="{{ placeholderImage(backgroundImage.width, backgroundImage.height, 'rgba(125, 125, 125, 0.1)') }}"
+            data-srcset="
+              {{ backgroundImage.src|resizeDynamic(1920) }} 1920w,
+              {{ backgroundImage.src|resizeDynamic(1600) }} 1600w,
+              {{ backgroundImage.src|resizeDynamic(1440) }} 1440w,
+              {{ backgroundImage.src|resizeDynamic(1366) }} 1366w,
+              {{ backgroundImage.src|resizeDynamic(1024) }} 1024w,
+              {{ backgroundImage.src|resizeDynamic(768) }} 768w,
+              {{ backgroundImage.src|resizeDynamic(640) }} 640w"
+            data-sizes="auto"
+            alt="{{ backgroundImage.alt|e }}">
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class="container">
+      <div class="content" data-text-align="{{ options.textAlign|default('center') }}">
+        <h1>{{ title }}</h1>
+        {% if description %}
+          <p>{{ description }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</flynt-component>

@@ -1,10 +1,16 @@
 <flynt-component name="BlockPostHeader" {{ not post.thumbnail ? 'data-thumbnail="false"' }}>
-  <div class="container" data-size="full" data-theme="light">
-    <div class="content" data-size="medium" data-align="center">
+  <div class="blog-template-wrapper" data-size="full" data-theme="dark">
+    <div class="blog-hero-title-wrap w-layout-vflex" data-size="medium" data-align="center">
+      {% if post.category %}
+          <a class="sidebar-category" href="{{ post.category.link|e('esc_url') }}">
+            <span class="visuallyHidden">{{ labels.postedIn|e }}</span>
+            <small>{{ post.category }}</small>
+          </a>
+        {% endif %}
+        <span class="readingtime">
+          <small>{{ labels.readingTime|replace({'%d': post.content|readingtime})|e }}</small>
+        </span>
       <h1>{{ post.title }}</h1>
-      {% if post.post_excerpt %}
-        <p class="h5">{{ post.post_excerpt }}</p>
-      {% endif %}
       <p class="meta">
         <a class="author" href="{{ post.author.link|e('esc_url') }}">
           {% if post.author.avatar %}
@@ -18,19 +24,11 @@
           <span class="visuallyHidden">{{ labels.postedBy|e }}</span>
           <small>{{ post.author.name }}</small>
         </a>
-        {% if post.category %}
-          <a class="category" href="{{ post.category.link|e('esc_url') }}">
-            <span class="visuallyHidden">{{ labels.postedIn|e }}</span>
-            <small>{{ post.category }}</small>
-          </a>
-        {% endif %}
-        <span class="readingtime">
-          <small>{{ labels.readingTime|replace({'%d': post.content|readingtime})|e }}</small>
-        </span>
+
       </p>
     </div>
   </div>
   {% if post.thumbnail %}
-    {{ renderComponent('BlockImage', {image: post.thumbnail, options: {size: 'wide'}, noComponentSpacing: true}) }}
+    {{ renderComponent('BlockImage', {image: post.thumbnail, options: {size: 'full'}, noComponentSpacing: true}) }}
   {% endif %}
 </flynt-component>

@@ -1,34 +1,29 @@
 :root,
 [data-theme="reset"] {
-    --white: #fff;
-  --light-green: #f0f9f3b3;
-  --yellow: #ffe26a;
-  --blue: #4353ff;
-  --dark-gray: #1d3d3e1a;
-  --dark-blue: #1c276d;
-  --dark-green: #0c2218;
-  --black: #000;
+  --color-accent: hsla(212, 100%, 45%, 1);
+  --color-background: hsla(0, 0%, 100%, 1);
+  --color-background-secondary: hsla(0, 0%, 19%, 0.08);
+  --color-border: hsl(0, 0%, 90%);
+  --color-border-secondary: hsl(0, 0%, 19%, 0.68);
+  --color-text: hsl(0, 0%, 19%, 1);
+  --color-text-muted: hsla(0, 0%, 19%, 0.8);
+  --color-error: hsl(343, 98%, 46%);
+}
 
-  /* Text Colors */
-  --text-white: #fff;
-  --text-gray-light: #fffc;
-  --text-yellow: #ffe26a;
-  --text-orange: #f69c20;
-  --text-gray: #737677;
-  --text-blue: #4353ff;
-  --text-dark-gray: #333;
-  --text-darker-gray: #222;
-  --text-dark-green: #0c2218;
-  --text-black: #000;
+[data-theme="light"] {
+  --color-background: hsl(212, 76%, 97%);
+  --color-text: hsla(212, 100%, 15%, 1);
+  --color-border: hsla(212, 100%, 15%, 0.7);
+  --color-border-secondary: var(--color-border);
+}
 
-   /* Border Colors */
-  --border-white: #fff;
-  --border-gray-light: #e4e4e4;
-  --border-yellow: #ffe26a;
-  --border-green: #b9e1c64d;
-  --border-gray: #73767780;
-  --border-blue: #4353ff;
-  --border-dark-green: #0c2218;
+[data-theme="dark"] {
+  --color-accent: hsla(79, 100%, 60%, 1);
+  --color-background: #0c2218;
+  --color-background-secondary: hsl(228, 56%, 98%, 0.06);
+  --color-border-secondary: hsl(0, 0%, 90%, 0.68);
+  --color-text: hsla(0, 0%, 100%, 1);
+  --color-text-muted: hsl(0, 0%, 100%, 0.8);
 }
 
 $breakpoint-mobile-horizontal: 480px;
@@ -36,12 +31,8 @@ $breakpoint-tablet: 768px;
 $breakpoint-tablet-horizontal: 1024px;
 $breakpoint-desktop: 1280px;
 
+
 :root {
-  /**
-   * FOUC can be reduced with good matching fallback font.
-   * https://meowni.ca/font-style-matcher/ or
-   * https://github.com/pixel-point/fontpie
-   */
   --font-family-heading: 'Figtree', sans-serif;
   --font-family-text: 'Figtree', sans-serif;
   --font-size-body: 16px;
@@ -57,3 +48,4 @@ $breakpoint-desktop: 1280px;
   --container-spacing: clamp(1rem, 2.5vw + 0.25rem, 2.25rem);
   --component-spacing: clamp(3rem, 6.5vw + 1.05rem, 6.25rem);
 }
+

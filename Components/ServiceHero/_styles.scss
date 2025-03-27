@@ -1,0 +1,99 @@
+flynt-component[name='PageHero'] {
+  background-color: var(--color-background);
+  color: var(--color-text);
+
+  &[data-theme='dark'] {
+    --color-text: #ffffff;
+    --color-background: #142421;
+  }
+
+  .pageHero {
+    display: flex;
+    position: relative;
+    min-height: 40vh;
+    padding: 40px 0;
+    align-items: center;
+    z-index: 1;
+
+    &[data-has-background="true"] {
+      color: #ffffff;
+
+      &::after {
+        background-color: rgba(0, 0, 0, 0.5);
+        content: '';
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+      }
+    }
+
+    &-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+
+    &[data-text-align='center'] {
+      text-align: center;
+    }
+
+    &[data-text-align='left'] {
+      text-align: left;
+      margin-left: 0;
+    }
+
+    h1 {
+      color: inherit;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      position: relative;
+
+      &::after {
+        background-color: #FFD700;
+        content: '';
+        display: block;
+        height: 4px;
+        margin: 15px auto 0;
+        width: 100px;
+      }
+
+      [data-text-align='left'] &::after {
+        margin-left: 0;
+      }
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+
+      [data-text-align='left'] & {
+        margin-left: 0;
+      }
+    }
+  }
+}

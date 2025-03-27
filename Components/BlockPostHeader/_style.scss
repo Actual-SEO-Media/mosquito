@@ -3,10 +3,31 @@ flynt-component[name='BlockPostHeader'] {
     margin-block-end: var(--component-spacing);
   }
 
-  > .container {
+  > .blog-template-wrapper {
     padding-block: var(--component-spacing);
     padding-inline: var(--container-spacing);
   }
+
+  .blog-hero-title-wrap {
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.w-layout-vflex {
+    flex-direction: column;
+    align-items: flex-start;
+    display: flex;
+}
+
+.sidebar-category {
+    background-color: var(--light-green);
+    color: var(--primary-green);
+    padding: 5px 8px;
+    transition: all .3s;
+    display: inline-block;
+}
 
   .content * + * {
     --flow-space: 2rem;

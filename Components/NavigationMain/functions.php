@@ -37,7 +37,6 @@ add_filter('Flynt/addComponentData?name=NavigationMain', function (array $data):
     }, $socialMedia);
     return $data;
 });
-// Keep your existing translatable options for navigation labels
 Options::addTranslatable('NavigationMain', [
     [
         'label' => __('Labels', 'flynt'),

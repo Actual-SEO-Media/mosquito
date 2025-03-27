@@ -1,6 +1,7 @@
 flynt-component[name='NavigationMain']  {
   --navigation-height: 76px;
-  block-size: var(--navigation-height);
+  --top-bar-height: 35px;
+  --total-height: calc(var(--navigation-height) + var(--top-bar-height));
   display: none;
   font-size: var(--font-size-body-small);
   text-transform: uppercase;
@@ -13,8 +14,15 @@ flynt-component[name='NavigationMain']  {
     background-color: var(--dark-green);
     block-size: var(--navigation-height);
     border-block-end: solid 1px #b9e1c64d;
+    position: relative;
+    z-index: 10;
+  }
+
+  .navigation-wrapper {
+    block-size: var(--total-height);
     inset-block-start: 0;
     inset-inline: 0;
+    position: relative;
 
     .admin-bar & {
       inset-block-start: var(--wp-admin--admin-bar--height);
