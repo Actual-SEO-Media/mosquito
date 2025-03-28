@@ -1,0 +1,120 @@
+// _style.scss
+flynt-component[name='BlockApproachText'] {
+  --lighting-cta-background: #f7e144;
+  --lighting-cta-text: #000000;
+
+  .container {
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      align-items: flex-start;
+      display: flex;
+      gap: var(--column-gap);
+      justify-content: space-between;
+
+      > * {
+        flex-basis: 50%;
+        margin-block-start: 0;
+      }
+
+      &[data-image-position='left'] {
+        flex-direction: row;
+      }
+
+      &[data-image-position='right'] {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  .content-wrapper {
+    margin-bottom: var(--flow-space);
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      margin-bottom: 0;
+    }
+  }
+
+  .subheading {
+    display: inline-block;
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: calc(var(--flow-space) / 2);
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: var(--border-width-thin);
+      background-color: var(--color-accent);
+    }
+  }
+
+  .heading {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-h2-mobile);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-heading);
+    margin-bottom: var(--flow-space);
+    max-width: 90%;
+
+    @media (min-width: $breakpoint-mobile-horizontal) {
+      font-size: var(--font-size-h2);
+    }
+  }
+
+  .intro-text {
+    font-size: var(--font-size-body-large);
+    line-height: var(--line-height-body);
+    margin-bottom: var(--flow-space);
+  }
+
+
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--flow-space);
+
+    @media (min-width: $breakpoint-tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--column-gap);
+    }
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      align-self: flex-end;
+    }
+  }
+
+  .service-item {
+    margin-bottom: var(--flow-space);
+
+    @media (min-width: $breakpoint-tablet) {
+      margin-bottom: 0;
+    }
+  }
+
+  .icon-wrapper {
+    margin-bottom: calc(var(--flow-space) / 2);
+  }
+
+  .service-icon {
+    color: var(--color-accent);
+    height: 40px;
+    width: 40px;
+  }
+
+  .service-title {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-h5);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: calc(var(--flow-space) / 3);
+  }
+
+  .service-description {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+  }
+}
