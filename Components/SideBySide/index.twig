@@ -1,7 +1,7 @@
 <flynt-component name="SideBySide" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
   <div class="container" {{ imagePosition ? 'data-image-position="' ~ imagePosition ~ '"' }}>
     {% if image %}
-      <div class="imageWrapped">
+      <div class="imageWrapper">
         <figure class="figure">
           {% if image.post_mime_type == 'image/svg+xml' %}
             <img
@@ -39,21 +39,18 @@
         <h2 class="subheading">{{ subheading|e }}</h2>
         {% endif %}
         <p class="description">{{ description|e }}</p>
-
         <div class="buttonWrapper">
           {% if primaryButton.link %}
             <a href="{{ primaryButton.link.url }}" class="button button--primary" {{ primaryButton.link.target ? 'target="' ~ primaryButton.link.target ~ '"' }}>
               {{ primaryButton.label|e }}
             </a>
           {% endif %}
-
           {% if secondaryButton.link %}
             <a href="{{ secondaryButton.link.url }}" class="button button--secondary" {{ secondaryButton.link.target ? 'target="' ~ secondaryButton.link.target ~ '"' }}>
               {{ secondaryButton.label|e }} <span class="icon">→</span>
             </a>
           {% endif %}
         </div>
-
         <div class="trustWrapper">
           <p class="trustText">{{ trustIndicator|e }}</p>
         </div>

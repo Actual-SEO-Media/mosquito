@@ -3,9 +3,8 @@ flynt-component[name='NavigationMain']  {
   --top-bar-height: 45px;
   --total-height: calc(var(--navigation-height) + var(--top-bar-height));
   display: none;
-  font-size: var(--font-size-body-small);
+  font-size: var(--font-size-body);
   text-transform: uppercase;
-  font-size: var(--font-size-body-large);
   border-bottom: 1px solid var(--color-border-secondary);
 
   @media (min-width: $breakpoint-tablet-horizontal) {

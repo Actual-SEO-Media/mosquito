@@ -2,7 +2,6 @@
  * Typography
  */
 
-// Applies a consistent margin for most common elements.
 :where(h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p, .paragraph, ul, ol, pre, table, figure, blockquote, form, fieldset, dl, address, details, hr, aside, video) {
   + * {
     margin-block-start: var(--flow-space);
@@ -243,7 +242,6 @@ table {
   --button-padding-block: calc(1rem - var(--button-border-width));
 
   transition: background-color 0.3s ease, color 0.3s ease;
-
   appearance: none;
   background-color: var(--button-background-color);
   border: solid var(--button-border-width) var(--button-border-color);
@@ -258,7 +256,7 @@ table {
   padding-inline: var(--button-padding-inline);
   text-align: center;
   text-decoration: none;
-  font-size: 1.0625rem; /* 17px */
+  font-size: var(--font-size-body-small);
 
   &:hover {
     background-color: transparent;
