@@ -15,68 +15,76 @@ body,
   color: var(--color-text);
   font-family: var(--font-family-text);
   font-size: var(--font-size-body);
-  font-weight: initial;
-  line-height: 1.5;
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
 }
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   --flow-space: 2.5rem;
   font-family: var(--font-family-heading);
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--color-accent)
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-heading);
+  color: var( --color-text);
 }
 
-h1
+h1,
 .h1 {
   --flow-space: 3.75rem;
+  font-size: var(--font-size-h1-mobile);
+
   @media (min-width: $breakpoint-mobile-horizontal) {
-    font-size: 3.125rem;
+    font-size: var(--font-size-h1);
   }
 }
 
 h2,
 .h2 {
-  font-size: 3rem;
+  font-size: var(--font-size-h2-mobile);
 
   @media (min-width: $breakpoint-mobile-horizontal) {
-    font-size: 2.25rem;
+    font-size: var(--font-size-h2);
   }
 }
 
 h3,
 .h3 {
-  font-size: 2.25rem;
+  font-size: var(--font-size-h3-mobile);
   line-height: 1.4;
 
   @media (min-width: $breakpoint-mobile-horizontal) {
-    font-size: 2rem;
+    font-size: var(--font-size-h3);
   }
 }
 
 h4,
 .h4 {
-  font-size: 1.75rem;
+  font-size: var(--font-size-h4-mobile);
   line-height: 1.4;
 
-  // @media (min-width: $breakpoint-mobile-horizontal) {
-  // }
+  @media (min-width: $breakpoint-mobile-horizontal) {
+    font-size: var(--font-size-h4);
+  }
 }
 
 h5,
 .h5 {
-  font-size: 1.25rem;
+  font-size: var(--font-size-h5-mobile);
   line-height: 1.5;
 
-  // @media (min-width: $breakpoint-mobile-horizontal) {
-  // }
+  @media (min-width: $breakpoint-mobile-horizontal) {
+    font-size: var(--font-size-h5);
+  }
 }
 
 h6,
 .h6 {
   color: var(--color-text-muted);
-  font-size: 1.0625rem;
+  font-size: var(--font-size-h6-mobile);
+
+  @media (min-width: $breakpoint-mobile-horizontal) {
+    font-size: var(--font-size-h6);
+  }
 }
 
 a {
@@ -101,7 +109,7 @@ hr {
 kbd,
 code {
   background: var(--color-background-secondary);
-  border-radius: 4px;
+  border-radius: var(--border-radius-small);
   display: inline-block;
   font-size: 0.95em;
   padding-block: 0;
@@ -126,15 +134,19 @@ figcaption {
 
 blockquote,
 .blockquote {
-  border-inline-start: 5px solid var(--color-accent);
+  border-inline-start: var(--border-width-thick) solid var(--color-accent);
   display: block;
-  font-size: 1.44rem;
+  font-size: var(--font-size-h4-mobile);
   font-style: normal;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   line-height: calc(1em + 0.75rem);
   margin-block: var(--flow-space);
   margin-inline: 2.5rem 0;
   padding-inline-start: 0.8rem;
+
+  @media (min-width: $breakpoint-tablet) {
+    font-size: var(--font-size-h4);
+  }
 
   cite {
     color: var(--color-text-muted);
@@ -196,7 +208,7 @@ table {
 
   th {
     color: var(--color-text-muted);
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
   }
 
   td {
@@ -205,13 +217,13 @@ table {
 
   thead {
     background-color: var(--color-background-secondary);
-    border-block-end: solid 1px var(--color-border);
+    border-block-end: solid var(--border-width-thin) var(--color-border);
   }
 
   tr {
     &:nth-child(even) {
-      border-block-end: solid 1px var(--color-border);
-      border-block-start: solid 1px var(--color-border);
+      border-block-end: solid var(--border-width-thin) var(--color-border);
+      border-block-start: solid var(--border-width-thin) var(--color-border);
     }
   }
 }
@@ -223,9 +235,9 @@ table {
 .wp-block-button > .wp-block-button__link {
   --button-background-color: var(--color-accent);
   --button-border-color: var(--color-accent);
-  --button-border-width: 2px;
-  --button-border-radius: 0;
-  --button-font-weight: 600;
+  --button-border-width: var(--border-width-default);
+  --button-border-radius: var(--border-radius-none);
+  --button-font-weight: var(--font-weight-semibold);
   --button-text-color: var(--color-background);
   --button-padding-inline: calc(1.5rem - var(--button-border-width));
   --button-padding-block: calc(1rem - var(--button-border-width));
@@ -246,7 +258,7 @@ table {
   padding-inline: var(--button-padding-inline);
   text-align: center;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 1.0625rem; /* 17px */
 
   &:hover {
     background-color: transparent;
@@ -299,22 +311,22 @@ fieldset {
 legend {
   color: var(--color-text);
   font-size: var(--font-size-body);
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   padding: 0;
 }
 
 label {
   color: var(--color-text-muted);
   font-size: var(--font-size-body-small);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   margin-block-start: 0;
 }
 
 [type="tel"], [type="url"], [type="text"], [type="date"], [type="email"], [type="search"], [type="number"], [type="password"], textarea, select {
   appearance: none;
   background-color: transparent;
-  border: 2px solid var(--color-border-secondary);
-  border-radius: 0;
+  border: var(--border-width-default) solid var(--color-border-secondary);
+  border-radius: var(--border-radius-none);
   caret-color: var(--color-text);
   color: var(--color-text);
   font-size: var(--font-size-body-small);
@@ -534,7 +546,7 @@ flynt-component {
 }
 
 .boxBorder {
-  border: solid 2px var(--color-border);
+  border: solid var(--border-width-default) var(--color-border);
 }
 
 /**

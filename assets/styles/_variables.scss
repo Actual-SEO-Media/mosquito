@@ -1,6 +1,6 @@
 :root,
 [data-theme="reset"] {
-  --color-accent: #0c2218
+  --color-accent: #0c2218;
   --color-background: hsla(0, 0%, 100%, 1);
   --color-background-secondary: hsla(0, 0%, 19%, 0.08);
   --color-border: hsl(0, 0%, 90%);
@@ -23,29 +23,84 @@
   --color-background-secondary: hsl(228, 56%, 98%, 0.06);
   --color-border-secondary: hsl(0, 0%, 90%, 0.68);
   --color-text: hsla(0, 0%, 100%, 1);
-  --color-text-muted: #fffc;
+  --color-text-muted: rgba(255, 255, 255, 0.8);
 }
 
+/* Breakpoints */
 $breakpoint-mobile-horizontal: 480px;
 $breakpoint-tablet: 768px;
 $breakpoint-tablet-horizontal: 1024px;
 $breakpoint-desktop: 1280px;
-
+$breakpoint-large-desktop: 1600px;
 
 :root {
+  /*
+   * TYPOGRAPHY SYSTEM
+   */
+
+  /* Font Families */
   --font-family-heading: 'Figtree', sans-serif;
   --font-family-text: 'Figtree', sans-serif;
-  --font-size-body: 16px;
-  --font-size-body-small: 14px;
+
+  /* Base Font Sizes */
+  --font-size-base: 16px;
+  --font-size-body: var(--font-size-base);
+  --font-size-body-small: 0.875rem; /* 14px */
+  --font-size-body-large: 1.125rem; /* 18px */
+
+  /* Heading Typography Scale */
+  --font-size-h1: 4.5rem;
+  --font-size-h2: 3rem;    /* 48px */
+  --font-size-h3: 2.5rem;  /* 40px */
+  --font-size-h4: 2rem;    /* 32px */
+  --font-size-h5: 1.5rem;  /* 24px */
+  --font-size-h6: 1.25rem; /* 20px */
+
+  /* Responsive Font Sizes - Mobile First */
+  --font-size-h1-mobile: 2.5rem;  /* 40px */
+  --font-size-h2-mobile: 2rem;    /* 32px */
+  --font-size-h3-mobile: 1.75rem; /* 28px */
+  --font-size-h4-mobile: 1.5rem;  /* 24px */
+  --font-size-h5-mobile: 1.25rem; /* 20px */
+  --font-size-h6-mobile: 1.125rem;/* 18px */
+
+  /* Line Heights */
+  --line-height-heading: 1.2;
+  --line-height-body: 1.5;
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /*
+   * SPACING SYSTEM
+   */
   --flow-space: 1.5625rem;
   --column-gap: clamp(2.5rem, 2.5vw + 1.75rem, 3.75rem);
 
+  /* Content Widths */
   --content-max-width: 700px;
   --content-max-width-wide: 900px;
   --content-max-width-full: 1200px;
 
+  /* Spacing Scales */
   --box-spacing: clamp(1rem, 2.50vw + 0.25rem, 2.25rem);
   --container-spacing: clamp(1rem, 2.5vw + 0.25rem, 2.25rem);
   --component-spacing: clamp(3rem, 6.5vw + 1.05rem, 6.25rem);
-}
 
+  /*
+   * BORDER SYSTEM
+   */
+  --border-radius-none: 0;
+  --border-radius-small: 4px;
+  --border-radius-medium: 8px;
+  --border-radius-large: 16px;
+  --border-radius-pill: 9999px;
+
+  /* Border Width */
+  --border-width-thin: 1px;
+  --border-width-default: 2px;
+  --border-width-thick: 4px;
+}

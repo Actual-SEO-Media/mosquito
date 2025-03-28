@@ -47,7 +47,7 @@ function getACFLayout(): array
                 'label' => __('Subheading', 'flynt'),
                 'name' => 'subheading',
                 'type' => 'text',
-                'required' => 1,
+                'required' => 0,
                 'default_value' => 'Protecting your home and family together',
             ],
             [
