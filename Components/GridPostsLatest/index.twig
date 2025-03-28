@@ -9,7 +9,7 @@
       <ul class="grid" {{ options.maxColumns ? 'data-max-columns="' ~ options.maxColumns ~ '"' }}>
         {% for post in posts %}
           {% set aria_labelledby_id = uuid ~ '-' ~ loop.index %}
-          <li class="post boxBorder" id="{{ aria_labelledby_id }}" data-theme="reset">
+          <li class="post" id="{{ aria_labelledby_id }}" data-theme="reset">
             <a class="link" href="{{ post.link|e('esc_url') }}" aria-labelledby="{{ aria_labelledby_id }}">
               {% if post.thumbnail %}
                 <figure class="figure">

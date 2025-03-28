@@ -10,7 +10,7 @@
         <span class="readingtime">
           <small>{{ labels.readingTime|replace({'%d': post.content|readingtime})|e }}</small>
         </span>
-      <h1>{{ post.title }}</h1>
+      <h1 class="h1">{{ post.title }}</h1>
       <p class="meta">
         <a class="author" href="{{ post.author.link|e('esc_url') }}">
           {% if post.author.avatar %}

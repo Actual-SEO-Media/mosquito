@@ -25,13 +25,12 @@ h1, h2, h3, h4, h5, h6,
   font-family: var(--font-family-heading);
   font-weight: 600;
   line-height: 1.2;
+  color: var(--color-accent)
 }
 
-h1,
+h1
 .h1 {
   --flow-space: 3.75rem;
-  font-size: 4rem;
-
   @media (min-width: $breakpoint-mobile-horizontal) {
     font-size: 3.125rem;
   }
@@ -216,10 +215,9 @@ table {
     }
   }
 }
-
-/**
- * Buttons
- */
+/*
+*Buttons
+*/
 
 .button,
 .wp-block-button > .wp-block-button__link {
@@ -227,10 +225,12 @@ table {
   --button-border-color: var(--color-accent);
   --button-border-width: 2px;
   --button-border-radius: 0;
-  --button-font-weight: 700;
+  --button-font-weight: 600;
   --button-text-color: var(--color-background);
-  --button-padding-inline: calc(1.125rem - var(--button-border-width));
-  --button-padding-block: calc(0.625rem - var(--button-border-width));
+  --button-padding-inline: calc(1.5rem - var(--button-border-width));
+  --button-padding-block: calc(1rem - var(--button-border-width));
+
+  transition: background-color 0.3s ease, color 0.3s ease;
 
   appearance: none;
   background-color: var(--button-background-color);
@@ -246,6 +246,12 @@ table {
   padding-inline: var(--button-padding-inline);
   text-align: center;
   text-decoration: none;
+  font-size: 17px;
+
+  &:hover {
+    background-color: transparent;
+    color: var(--button-border-color);
+  }
 
   &:disabled,
   &--disabled {
@@ -257,6 +263,11 @@ table {
   &--outlined {
     --button-text-color: var(--color-accent);
     --button-background-color: transparent;
+
+    &:hover {
+      background-color: var(--button-border-color);
+      color: var(--color-background);
+    }
   }
 
   &--text {
@@ -264,25 +275,13 @@ table {
     --button-text-color: var(--color-accent);
     border: 0;
     padding: 0;
-  }
-}
 
-.wp-block-button {
-  color: var(--button-text-color);
-
-  &.is-style-outline {
-    --button-text-color: var(--color-accent);
-
-    .wp-block-button__link {
-      --button-background-color: transparent;
-      --button-text-color: var(--color-accent);
-      border: solid var(--button-border-width) var(--color-accent);
-      color: var(--button-text-color);
-      padding-block: var(--button-padding-block);
-      padding-inline: var(--button-padding-inline);
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
+
 
 /**
  * Forms

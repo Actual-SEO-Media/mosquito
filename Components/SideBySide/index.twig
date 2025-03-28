@@ -1,7 +1,7 @@
 <flynt-component name="SideBySide" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
   <div class="container" {{ imagePosition ? 'data-image-position="' ~ imagePosition ~ '"' }}>
     {% if image %}
-      <div class="imageWrapperd">
+      <div class="imageWrapped">
         <figure class="figure">
           {% if image.post_mime_type == 'image/svg+xml' %}
             <img
