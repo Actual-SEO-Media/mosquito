@@ -1,5 +1,5 @@
-$light-bg: #dedcdc;
-$text-color: #333;
+$light-bg: #194833;
+$text-color: #ffffff;
 $default-gap: 0.625rem;
 $icon-size: 18px;
 
@@ -10,6 +10,7 @@ $icon-size: 18px;
   justify-content: space-between;
   padding: 0.5rem $default-gap * 2;
   min-height: var(--top-bar-height, 35px);
+  text-transform: lowercase;
 
   .contact-info {
     display: flex;
@@ -20,10 +21,6 @@ $icon-size: 18px;
     display: flex;
     gap: $default-gap;
 
-    .social-icon {
-      color: var(--text-dark-green);
-      margin-left: $default-gap;
-    }
   }
 
   .contact-item {
@@ -44,7 +41,7 @@ $icon-size: 18px;
     .text {
       display: inline-block;
       vertical-align: middle;
-      font-size: 0.875rem; /* Smaller text for compact top bar */
+      font-size: var(--font--size--body)
     }
   }
 
