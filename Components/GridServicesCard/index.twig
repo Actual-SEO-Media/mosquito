@@ -1,0 +1,102 @@
+<flynt-component name="GridServicesCard" class="componentSpacing" {{ theme ? 'data-theme="' ~ theme ~ '"' }}>
+  <div class="container" data-flow="layout">
+    {% if preContentHtml %}
+      <div class="section-header">
+        <div class="header-content">
+          <div data-size="medium" data-align="{{ titleAlignment }}" data-text-align="{{ titleAlignment }}" data-flow="content">
+            {{ preContentHtml|e('wp_kses_post') }}
+          </div>
+         {% if ctaButton.showButton and ctaButton.buttonLink %}
+            <div class="cta-button-container" data-align="{{ titleAlignment }}">
+              <a href="{{ ctaButton.buttonLink.url|e('esc_url') }}" class="button-cta" {{ ctaButton.buttonLink.target ? 'target="' ~ ctaButton.buttonLink.target ~ '"' }}>
+                {{ ctaButton.buttonText|e }}
+              </a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="layout-container">
+      {% if featuredImage %}
+        <div class="featured-image-container">
+          <figure class="featured-figure">
+            {% if featuredImage.post_mime_type == 'image/svg+xml' %}
+              <img
+                class="featured-image-svg lazyload"
+                src="{{ placeholderImage(600, 600, 'rgba(125, 125, 125, 0.1)') }}"
+                data-src="{{ featuredImage.src }}"
+                alt="{{ featuredImage.alt|e }}"
+              >
+            {% else %}
+              <img
+                class="featured-image lazyload"
+                src="{{ featuredImage.src|resizeDynamic(600, 600, 'center') }}"
+                srcset="{{ placeholderImage(600, 600, 'rgba(125, 125, 125, 0.1)') }}"
+                data-srcset="
+                  {{ featuredImage.src|resizeDynamic(1200, 1200, 'center') }} 1200w,
+                  {{ featuredImage.src|resizeDynamic(800, 800, 'center') }} 800w,
+                  {{ featuredImage.src|resizeDynamic(600, 600, 'center') }} 600w"
+                data-sizes="auto"
+                alt="{{ featuredImage.alt|e }}"
+              >
+            {% endif %}
+          </figure>
+        </div>
+      {% endif %}
+
+      <div class="cards-container{% if not featuredImage %} full-width{% endif %}">
+        <ul class="grid{% if not featuredImage %} full-width{% endif %}" {{ options.showBorder ? 'data-border="true"' }}>
+          {% for card in serviceCards %}
+            {% if card.title or card.description %}
+              <li class="card {{- options.showBorder ? ' boxBorder' -}}">
+                <a href="{{ card.link.url|e('esc_url') }}" class="card-inner" {{ card.link.target ? 'target="' ~ card.link.target ~ '"' }}>
+                  {% if card.icon %}
+                    <div class="icon-container">
+                      {% if card.icon.post_mime_type == 'image/svg+xml' %}
+                        <img
+                          class="icon-svg lazyload"
+                          src="{{ placeholderImage(80, 80, 'rgba(125, 125, 125, 0.1)') }}"
+                          width="80"
+                          height="80"
+                          data-src="{{ card.icon.src }}"
+                          alt="{{ card.icon.alt|e }}"
+                        >
+                      {% else %}
+                        <img
+                          class="icon lazyload"
+                          src="{{ card.icon.src|resizeDynamic(80, 80, 'center') }}"
+                          width="80"
+                          height="80"
+                          srcset="{{ placeholderImage(80, 80, 'rgba(125, 125, 125, 0.1)') }}"
+                          data-srcset="
+                            {{ card.icon.src|resizeDynamic(160, 160, 'center') }} 160w,
+                            {{ card.icon.src|resizeDynamic(80, 80, 'center') }} 80w"
+                          data-sizes="auto"
+                          alt="{{ card.icon.alt|e }}">
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                  <div class="content" data-flow="content">
+                    <h3 class="title">{{ card.title|e }}</h3>
+                    {% if card.description %}
+                      <p class="description">{{ card.description|e }}</p>
+                    {% endif %}
+                    {% if options.showArrow %}
+                      <div class="arrow-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      </div>
+                    {% endif %}
+                  </div>
+                </a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</flynt-component>
