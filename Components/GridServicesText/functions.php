@@ -1,14 +1,14 @@
 <?php
 
-namespace Flynt\Components\GridImageText;
+namespace Flynt\Components\GridServicesText;
 
 use Flynt\FieldVariables;
 
 function getACFLayout(): array
 {
     return [
-        'name' => 'gridImageText',
-        'label' => __('Grid: Image Text', 'flynt'),
+        'name' => 'GridServicesText',
+        'label' => __('Grid: Services Image Text', 'flynt'),
         'sub_fields' => [
             [
                 'label' => __('Content', 'flynt'),
