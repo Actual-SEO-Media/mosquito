@@ -1,0 +1,61 @@
+<flynt-component name="SideBySide" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+  <div class="container" {{ imagePosition ? 'data-image-position="' ~ imagePosition ~ '"' }}>
+    {% if image %}
+      <div class="imageWrapperd">
+        <figure class="figure">
+          {% if image.post_mime_type == 'image/svg+xml' %}
+            <img
+              class="figure-image-svg lazyload"
+              src="{{ placeholderImage(image.width, image.height, 'rgba(125, 125, 125, 0.1)') }}"
+              width="{{ image.width }}"
+              height="{{ image.height }}"
+              data-src="{{ image.src }}"
+              alt="{{ image.alt|e }}">
+          {% else %}
+            <img
+              class="figure-image lazyload"
+              src="{{ image.src|resizeDynamic(768) }}"
+              width="{{ image.width }}"
+              height="{{ image.height }}"
+              srcset="{{ placeholderImage(image.width, image.height, 'rgba(125, 125, 125, 0.1)') }}"
+              data-srcset="
+                {{ image.src|resizeDynamic(1920) }} 1920w,
+                {{ image.src|resizeDynamic(1600) }} 1600w,
+                {{ image.src|resizeDynamic(1440) }} 1440w,
+                {{ image.src|resizeDynamic(1366) }} 1366w,
+                {{ image.src|resizeDynamic(1024) }} 1024w,
+                {{ image.src|resizeDynamic(768) }} 768w,
+                {{ image.src|resizeDynamic(640) }} 640w"
+              data-sizes="auto"
+              alt="{{ image.alt|e }}">
+          {% endif %}
+        </figure>
+      </div>
+    {% endif %}
+    <div class="contentWrapper">
+      <div class="content">
+        <h1 class="heading">{{ heading|e }}</h1>
+        <h2 class="subheading">{{ subheading|e }}</h2>
+        <p class="description">{{ description|e }}</p>
+
+        <div class="buttonWrapper">
+          {% if primaryButton.link %}
+            <a href="{{ primaryButton.link.url }}" class="button button--primary" {{ primaryButton.link.target ? 'target="' ~ primaryButton.link.target ~ '"' }}>
+              {{ primaryButton.label|e }}
+            </a>
+          {% endif %}
+
+          {% if secondaryButton.link %}
+            <a href="{{ secondaryButton.link.url }}" class="button button--secondary" {{ secondaryButton.link.target ? 'target="' ~ secondaryButton.link.target ~ '"' }}>
+              {{ secondaryButton.label|e }} <span class="icon">→</span>
+            </a>
+          {% endif %}
+        </div>
+
+        <div class="trustWrapper">
+          <p class="trustText">{{ trustIndicator|e }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</flynt-component>
