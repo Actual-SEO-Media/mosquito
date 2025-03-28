@@ -1,42 +1,44 @@
-// _style.scss
 flynt-component[name='BlockApproachText'] {
-  --lighting-cta-background: #f7e144;
-  --lighting-cta-text: #000000;
-
   .container {
-    @media (min-width: $breakpoint-tablet-horizontal) {
+    max-width: var(--content-max-width-full);
+    margin: 0 auto;
+    padding-inline: var(--container-spacing);
+  }
+
+  .header-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+    text-align: center;
+
+    @media (min-width: $breakpoint-tablet) {
+      flex-direction: row;
       align-items: flex-start;
-      display: flex;
-      gap: var(--column-gap);
       justify-content: space-between;
-
-      > * {
-        flex-basis: 50%;
-        margin-block-start: 0;
-      }
-
-      &[data-image-position='left'] {
-        flex-direction: row;
-      }
-
-      &[data-image-position='right'] {
-        flex-direction: row-reverse;
-      }
+      gap: var(--column-gap);
+      text-align: left;
     }
   }
 
-  .content-wrapper {
-    margin-bottom: var(--flow-space);
+  .header-content-left {
+    @media (min-width: $breakpoint-tablet) {
+      flex: 0 0 50%;
+    }
+  }
 
-    @media (min-width: $breakpoint-tablet-horizontal) {
-      margin-bottom: 0;
+  .header-content-right {
+    margin-top: var(--flow-space);
+
+    @media (min-width: $breakpoint-tablet) {
+      flex: 0 0 40%;
+      margin-top: 0;
+      text-align: right;
+      align-self: center;
     }
   }
 
   .subheading {
     display: inline-block;
-    font-size: var(--font-size-body);
-    font-weight: var(--font-weight-medium);
     margin-bottom: calc(var(--flow-space) / 2);
     position: relative;
 
@@ -45,22 +47,23 @@ flynt-component[name='BlockApproachText'] {
       position: absolute;
       bottom: -4px;
       left: 0;
+      right: 0;
       width: 100%;
-      height: var(--border-width-thin);
-      background-color: var(--color-accent);
+      height: 2px;
+      background-color: #f7e144;
+
+      @media (min-width: $breakpoint-tablet) {
+        right: auto;
+      }
     }
   }
 
   .heading {
-    font-family: var(--font-family-heading);
-    font-size: var(--font-size-h2-mobile);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--line-height-heading);
-    margin-bottom: var(--flow-space);
-    max-width: 90%;
+    margin-bottom: 0;
+    max-width: 100%;
 
-    @media (min-width: $breakpoint-mobile-horizontal) {
-      font-size: var(--font-size-h2);
+    @media (min-width: $breakpoint-tablet) {
+      max-width: 90%;
     }
   }
 
@@ -68,53 +71,83 @@ flynt-component[name='BlockApproachText'] {
     font-size: var(--font-size-body-large);
     line-height: var(--line-height-body);
     margin-bottom: var(--flow-space);
-  }
-
-
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--flow-space);
 
     @media (min-width: $breakpoint-tablet) {
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--column-gap);
+      text-align: right;
     }
+  }
+
+  .services-row {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
 
     @media (min-width: $breakpoint-tablet-horizontal) {
-      align-self: flex-end;
+      flex-direction: row;
+      flex-wrap: nowrap;
     }
   }
 
   .service-item {
-    margin-bottom: var(--flow-space);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    flex: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
-    @media (min-width: $breakpoint-tablet) {
-      margin-bottom: 0;
+    &:last-child {
+      border-bottom: none;
+    }
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      border-bottom: none;
+      text-align: left;
+      align-items: flex-start;
+
+      &:not(:first-child) {
+        border-left: 2px solid rgba(255, 255, 255, 0.1);
+      }
     }
   }
 
   .icon-wrapper {
-    margin-bottom: calc(var(--flow-space) / 2);
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      justify-content: flex-start;
+    }
   }
 
   .service-icon {
-    color: var(--color-accent);
+    color: #a3e635;
     height: 40px;
     width: 40px;
+    fill: #a3e635;
   }
 
   .service-title {
-    font-family: var(--font-family-heading);
     font-size: var(--font-size-h5);
-    font-weight: var(--font-weight-semibold);
-    margin-bottom: calc(var(--flow-space) / 3);
+    margin-bottom: 10px;
+    text-align: center;
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      text-align: left;
+    }
   }
 
   .service-description {
     color: var(--color-text-muted);
-    font-size: var(--font-size-body);
-    line-height: var(--line-height-body);
+    margin: 0;
+    text-align: center;
+    max-width: 90%;
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      text-align: left;
+      max-width: 100%;
+    }
   }
 }

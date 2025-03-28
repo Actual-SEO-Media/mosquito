@@ -1,26 +1,41 @@
 <flynt-component
   name="BlockApproachText"
   class="componentSpacing"
-  {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}
+  data-theme="dark"
 >
-  <div class="container" data-size="full" data-image-position="{{ layoutTab|default('right') }}">
-    <div class="content-wrapper" data-size="medium" data-align="left">
-      <span class="subheading">{{ subheading|e }}</span>
-      <h2 class="heading">{{ heading|e }}</h2>
-      <div class="intro-text">
-        <p>{{ introText|nl2br }}</p>
+  <div class="container">
+    <div class="header-section">
+      <div class="header-content-left">
+        <span class="subheading">{{ subheading|e }}</span>
+        <h2 class="heading">{{ heading|e }}</h2>
+      </div>
+      <div class="header-content-right">
+        <div class="intro-text">
+          <p>{{ introText|nl2br }}</p>
+        </div>
         {% if ctaButton.ctaButtonText and ctaButton.ctaButtonLink %}
-          <a href="{{ ctaButton.ctaButtonLink.url|e }}" class="cta-button"{% if ctaButton.ctaButtonLink.target %} target="{{ ctaButton.ctaButtonLink.target|e }}"{% endif %}>{{ ctaButton.ctaButtonText|e }}</a>
+          <a href="{{ ctaButton.ctaButtonLink.url|e }}" class="button-cta"{% if ctaButton.ctaButtonLink.target %} target="{{ ctaButton.ctaButtonLink.target|e }}"{% endif %}>{{ ctaButton.ctaButtonText|e }}</a>
         {% endif %}
       </div>
     </div>
-    <div class="services-grid">
+
+    <div class="services-row">
       {% for service in services %}
         <div class="service-item">
           <div class="icon-wrapper">
+            {% if service.icon %}
+              <img
+                class="service-icon"
+                src="{{ service.icon.url|e }}"
+                alt="{{ service.title|e }}"
+                width="40"
+                height="40"
+              >
+            {% else %}
               <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="10" fill="currentColor" />
               </svg>
+            {% endif %}
           </div>
           <h3 class="service-title">{{ service.title|e }}</h3>
           <p class="service-description">{{ service.description|e }}</p>
