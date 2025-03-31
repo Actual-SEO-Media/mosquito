@@ -7,6 +7,9 @@
             {% if headline %}
               {{ headline|e }}
             {% endif %}
+            {% if highlightText %}
+              <span class="highlight">{{ highlightText|e }}</span>
+            {% endif %}
           </h1>
           {% if subheadline %}
             <p class="subheadline">{{ subheadline|e }}</p>
@@ -26,7 +29,8 @@
         </div>
       </div>
     </div>
-    {% if backgroundImage %}
+  </div>
+      {% if backgroundImage %}
       <div class="imageContainer">
         <img
           class="heroImage lazyload"
@@ -43,5 +47,4 @@
           alt="{{ backgroundImage.alt|e }}">
       </div>
     {% endif %}
-  </div>
 </flynt-component>
