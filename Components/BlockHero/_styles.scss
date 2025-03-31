@@ -1,21 +1,16 @@
+/* Updated BlockHero Component Styles */
 flynt-component[name='BlockHero'] {
   --hero-accent-color: #ffe26a;
   --hero-dark-bg: #0c2218;
 
-  &[data-theme="dark"] {
-    --hero-text-color: var(--color-text);
-    --hero-highlight-color: var(--hero-accent-color);
-  }
-
-  &:not([data-theme="dark"]) {
-    --hero-text-color: var(--hero-dark-bg);
-    --hero-highlight-color: var(--hero-accent-color);
-  }
-
   .hero {
     color: var(--hero-text-color);
     position: relative;
-    padding-block-start: 80px;
+    background-color: var(--hero-dark-bg);
+
+    @media (min-width: $breakpoint-tablet) {
+      padding-block-start: 80px;
+    }
   }
 
   .container {
@@ -25,20 +20,31 @@ flynt-component[name='BlockHero'] {
 
   .contentWrapper {
     display: flex;
-    flex-direction: column;
     margin-bottom: 3rem;
+
+    @media (max-width: $breakpoint-tablet - 1) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
 
     @media (min-width: $breakpoint-tablet) {
       flex-direction: row;
       align-items: flex-start;
       justify-content: space-between;
+      text-align: left;
     }
   }
 
   .textContent {
+    @media (max-width: $breakpoint-tablet - 1) {
+      text-align: center;
+    }
+
     @media (min-width: $breakpoint-tablet) {
       flex: 0 1 60%;
       padding-right: 2rem;
+      text-align: left;
     }
   }
 
@@ -77,49 +83,17 @@ flynt-component[name='BlockHero'] {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin-top: 2.5rem;
+
+    @media (max-width: $breakpoint-tablet - 1) {
+      margin-top: 1.5rem;
+      align-self: center;
+    }
 
     @media (min-width: $breakpoint-tablet) {
       margin-top: 0;
       flex-shrink: 0;
       flex: 0 0 auto;
-      align-self: center;
+      align-self: flex-end;
     }
-  }
-
-  .button {
-    --button-background-color: var(--hero-accent-color);
-    --button-border-color: var(--hero-accent-color);
-    --button-text-color: var(--hero-dark-bg);
-    font-weight: var(--font-weight-semibold);
-    white-space: nowrap;
-
-    &:hover {
-      color: var(--hero-accent-color);
-    }
-
-    &--outlined {
-      --button-background-color: transparent;
-      --button-text-color: var(--hero-text-color);
-      --button-border-color: var(--hero-text-color);
-
-      &:hover {
-        --button-background-color: var(--hero-text-color);
-        --button-text-color: var(--hero-dark-bg);
-      }
-    }
-  }
-
-  .imageContainer {
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-  }
-
-  .heroImage {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
   }
 }

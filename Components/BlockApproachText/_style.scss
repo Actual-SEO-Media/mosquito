@@ -1,9 +1,10 @@
 flynt-component[name='BlockHero'] {
-    &.componentSpacing {
+  &.componentSpacing {
     margin-block-start: 0;
     padding-block-end: 0;
     padding-block-start: 0;
   }
+
   --hero-accent-color: #ffe26a;
   --hero-dark-bg: #0c2218;
   --hero-text-color: white;
@@ -12,9 +13,9 @@ flynt-component[name='BlockHero'] {
   .hero {
     color: var(--hero-text-color);
     position: relative;
-    min-height: 680px;
+    min-height: 550px; /* Adjusted to match image proportions */
     background-color: var(--hero-dark-bg);
-    padding-block: var(--component-spacing);
+    padding-block: 0; /* Remove padding to match image spacing */
   }
 
   .container {
@@ -30,9 +31,10 @@ flynt-component[name='BlockHero'] {
 
     @media (min-width: $breakpoint-tablet) {
       flex-direction: row;
-      align-items: center; /* Vertical alignment */
+      align-items: flex-start; /* Top alignment instead of center */
       justify-content: space-between;
       height: 100%;
+      padding-top: 80px; /* Add top spacing to match image */
     }
   }
 
@@ -40,6 +42,7 @@ flynt-component[name='BlockHero'] {
     @media (min-width: $breakpoint-tablet) {
       flex: 0 1 60%;
       padding-right: 2rem;
+      max-width: 700px; /* Control width to keep text more to the left */
     }
   }
 
@@ -76,7 +79,7 @@ flynt-component[name='BlockHero'] {
 
   .buttonWrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* Changed to row to match image */
     gap: 1rem;
     margin-top: 2.5rem;
 
@@ -84,7 +87,7 @@ flynt-component[name='BlockHero'] {
       margin-top: 0;
       flex-shrink: 0;
       flex: 0 0 auto;
-      align-self: center;
+      align-self: flex-start; /* Align to top instead of center */
     }
   }
 
@@ -94,6 +97,8 @@ flynt-component[name='BlockHero'] {
     --button-text-color: var(--hero-dark-bg);
     font-weight: var(--font-weight-semibold);
     white-space: nowrap;
+    font-size: 0.875rem; /* Match the smaller text size in image */
+    padding: 0.75rem 1.25rem; /* Adjust padding to match buttons in image */
 
     &:hover {
       color: var(--hero-accent-color);
@@ -117,7 +122,7 @@ flynt-component[name='BlockHero'] {
     line-height: 0;
     display: flex;
     justify-content: center;
-    margin-top: -20px;
+    margin-top: -100px; /* Increased overlap for better match to image */
     background-color: white;
     position: relative;
     z-index: 1;
