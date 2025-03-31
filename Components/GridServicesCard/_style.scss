@@ -17,7 +17,6 @@ flynt-component[name='GridServicesCard'] {
       }
     }
   }
-
   .layout-container {
     display: flex;
     flex-direction: column-reverse;
@@ -28,7 +27,6 @@ flynt-component[name='GridServicesCard'] {
       gap: var(--column-gap);
     }
   }
-
   .featured-image-container {
     margin-top: var(--flow-space);
     margin-bottom: 0;
@@ -65,6 +63,7 @@ flynt-component[name='GridServicesCard'] {
     height: auto;
     max-width: 100%;
     width: 100%;
+    object-fit: cover;
   }
 
   .header-content {
@@ -77,9 +76,6 @@ flynt-component[name='GridServicesCard'] {
       padding: 0.25rem 0.5rem;
     }
   }
-
-
-
   .grid {
     --grid-columns: 1;
     display: grid;
@@ -171,7 +167,6 @@ flynt-component[name='GridServicesCard'] {
   }
 
   .title {
-
     @media (min-width: $breakpoint-mobile-horizontal) {
       font-size: var(--font-size-h5);
     }
