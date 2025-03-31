@@ -1,0 +1,47 @@
+<flynt-component name="BlockHero" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+  <div class="hero">
+    <div class="container">
+      <div class="contentWrapper">
+        <div class="textContent">
+          <h1 class="headline">
+            {% if headline %}
+              {{ headline|e }}
+            {% endif %}
+          </h1>
+          {% if subheadline %}
+            <p class="subheadline">{{ subheadline|e }}</p>
+          {% endif %}
+        </div>
+        <div class="buttonWrapper">
+          {% if primaryButtonGroup.label and primaryButtonGroup.link %}
+            <a class="button" href="{{ primaryButtonGroup.link.url|e }}" {{ primaryButtonGroup.link.target ? 'target="' ~ primaryButtonGroup.link.target ~ '"' }}>
+              {{ primaryButtonGroup.label|e }}
+            </a>
+          {% endif %}
+          {% if secondaryButtonGroup.label and secondaryButtonGroup.link %}
+            <a class="button button--outlined" href="{{ secondaryButtonGroup.link.url|e }}" {{ secondaryButtonGroup.link.target ? 'target="' ~ secondaryButtonGroup.link.target ~ '"' }}>
+              {{ secondaryButtonGroup.label|e }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% if backgroundImage %}
+      <div class="imageContainer">
+        <img
+          class="heroImage lazyload"
+          src="{{ backgroundImage.src|resizeDynamic(768) }}"
+          width="{{ backgroundImage.width }}"
+          height="{{ backgroundImage.height }}"
+          srcset="{{ placeholderImage(backgroundImage.width, backgroundImage.height, 'rgba(125, 125, 125, 0.1)') }}"
+          data-srcset="
+            {{ backgroundImage.src|resizeDynamic(1920) }} 1920w,
+            {{ backgroundImage.src|resizeDynamic(1440) }} 1440w,
+            {{ backgroundImage.src|resizeDynamic(1024) }} 1024w,
+            {{ backgroundImage.src|resizeDynamic(768) }} 768w"
+          data-sizes="auto"
+          alt="{{ backgroundImage.alt|e }}">
+      </div>
+    {% endif %}
+  </div>
+</flynt-component>
