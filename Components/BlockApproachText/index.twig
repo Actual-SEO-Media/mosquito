@@ -1,50 +1,46 @@
-<flynt-component name="BlockHero" class="componentSpacing">
-  <div class="hero">
-    <div class="container">
-      <div class="contentWrapper">
-        <div class="textContent">
-          <h1 class="headline">
-            {% if headline %}
-              {{ headline|e }}
-            {% endif %}
-            {% if highlightText %}
-              <span class="highlight">{{ highlightText|e }}</span>
-            {% endif %}
-          </h1>
-          {% if subheadline %}
-            <p class="subheadline">{{ subheadline|e }}</p>
-          {% endif %}
+<flynt-component
+  name="BlockApproachText"
+  class="componentSpacing"
+  data-theme="dark"
+>
+  <div class="container">
+    <div class="header-section">
+      <div class="header-content-left">
+        <span class="subheading">{{ subheading|e }}</span>
+        <h2 class="heading">{{ heading|e }}</h2>
+      </div>
+      <div class="header-content-right">
+        <div class="intro-text">
+          <p>{{ introText|nl2br }}</p>
         </div>
-        <div class="buttonWrapper">
-          {% if primaryButtonGroup.label and primaryButtonGroup.link %}
-            <a class="button" href="{{ primaryButtonGroup.link.url|e }}" {{ primaryButtonGroup.link.target ? 'target="' ~ primaryButtonGroup.link.target ~ '"' }}>
-              {{ primaryButtonGroup.label|e }}
-            </a>
-          {% endif %}
-          {% if secondaryButtonGroup.label and secondaryButtonGroup.link %}
-            <a class="button button--outlined" href="{{ secondaryButtonGroup.link.url|e }}" {{ secondaryButtonGroup.link.target ? 'target="' ~ secondaryButtonGroup.link.target ~ '"' }}>
-              {{ secondaryButtonGroup.label|e }}
-            </a>
-          {% endif %}
-        </div>
+        {% if ctaButton.ctaButtonText and ctaButton.ctaButtonLink %}
+          <a href="{{ ctaButton.ctaButtonLink.url|e }}" class="button-cta"{% if ctaButton.ctaButtonLink.target %} target="{{ ctaButton.ctaButtonLink.target|e }}"{% endif %}>{{ ctaButton.ctaButtonText|e }}</a>
+        {% endif %}
       </div>
     </div>
-  </div>
-  {% if backgroundImage %}
-    <div class="imageContainer">
-      <img
-        class="heroImage lazyload"
-        src="{{ backgroundImage.src|resizeDynamic(768) }}"
-        width="{{ backgroundImage.width }}"
-        height="{{ backgroundImage.height }}"
-        srcset="{{ placeholderImage(backgroundImage.width, backgroundImage.height, 'rgba(125, 125, 125, 0.1)') }}"
-        data-srcset="
-          {{ backgroundImage.src|resizeDynamic(1920) }} 1920w,
-          {{ backgroundImage.src|resizeDynamic(1440) }} 1440w,
-          {{ backgroundImage.src|resizeDynamic(1024) }} 1024w,
-          {{ backgroundImage.src|resizeDynamic(768) }} 768w"
-        data-sizes="auto"
-        alt="{{ backgroundImage.alt|e }}">
+
+    <div class="services-row">
+      {% for service in services %}
+        <div class="service-item">
+          <div class="icon-wrapper">
+            {% if service.icon %}
+              <img
+                class="service-icon"
+                src="{{ service.icon.url|e }}"
+                alt="{{ service.title|e }}"
+                width="40"
+                height="40"
+              >
+            {% else %}
+              <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" fill="currentColor" />
+              </svg>
+            {% endif %}
+          </div>
+          <h3 class="service-title">{{ service.title|e }}</h3>
+          <p class="service-description">{{ service.description|e }}</p>
+        </div>
+      {% endfor %}
     </div>
-  {% endif %}
+  </div>
 </flynt-component>

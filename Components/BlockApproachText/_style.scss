@@ -1,141 +1,153 @@
-flynt-component[name='BlockHero'] {
-  &.componentSpacing {
-    margin-block-start: 0;
-    padding-block-end: 0;
-    padding-block-start: 0;
-  }
-
-  --hero-accent-color: #ffe26a;
-  --hero-dark-bg: #0c2218;
-  --hero-text-color: white;
-  --hero-highlight-color: var(--hero-accent-color);
-
-  .hero {
-    color: var(--hero-text-color);
-    position: relative;
-    min-height: 550px; /* Adjusted to match image proportions */
-    background-color: var(--hero-dark-bg);
-    padding-block: 0; /* Remove padding to match image spacing */
-  }
-
+flynt-component[name='BlockApproachText'] {
   .container {
-    position: relative;
-    z-index: 2;
-    height: 100%;
+    max-width: var(--content-max-width-full);
+    margin: 0 auto;
+    padding-inline: var(--container-spacing);
   }
 
-  .contentWrapper {
+  .header-section {
     display: flex;
     flex-direction: column;
-    min-height: 420px; /* Ensures the content takes up most of the min-height */
+    margin-bottom: 60px;
+    text-align: center;
 
     @media (min-width: $breakpoint-tablet) {
       flex-direction: row;
-      align-items: flex-start; /* Top alignment instead of center */
+      align-items: flex-start;
       justify-content: space-between;
-      height: 100%;
-      padding-top: 80px; /* Add top spacing to match image */
+      gap: var(--column-gap);
+      text-align: left;
     }
   }
 
-  .textContent {
+  .header-content-left {
     @media (min-width: $breakpoint-tablet) {
-      flex: 0 1 60%;
-      padding-right: 2rem;
-      max-width: 700px; /* Control width to keep text more to the left */
+      flex: 0 0 50%;
     }
   }
 
-  .headline {
-    color: var(--hero-text-color);
-    font-size: var(--font-size-h1-mobile);
-    font-weight: var(--font-weight-bold);
-    margin-bottom: 1.5rem;
-
-    @media (min-width: $breakpoint-mobile-horizontal) {
-      font-size: var(--font-size-h1);
-    }
-
-    .highlight {
-      display: inline-block;
-      position: relative;
-
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -6px;
-        left: 0;
-        height: 4px;
-        width: 100%;
-        background-color: var(--hero-highlight-color);
-      }
-    }
-  }
-
-  .subheadline {
-    font-size: var(--font-size-body-large);
-    color: var(--hero-text-color);
-  }
-
-  .buttonWrapper {
-    display: flex;
-    flex-direction: row; /* Changed to row to match image */
-    gap: 1rem;
-    margin-top: 2.5rem;
+  .header-content-right {
+    margin-top: var(--flow-space);
 
     @media (min-width: $breakpoint-tablet) {
+      flex: 0 0 40%;
       margin-top: 0;
-      flex-shrink: 0;
-      flex: 0 0 auto;
-      align-self: flex-start; /* Align to top instead of center */
+      text-align: right;
+      align-self: center;
     }
   }
 
-  .button {
-    --button-background-color: var(--hero-accent-color);
-    --button-border-color: var(--hero-accent-color);
-    --button-text-color: var(--hero-dark-bg);
-    font-weight: var(--font-weight-semibold);
-    white-space: nowrap;
-    font-size: 0.875rem; /* Match the smaller text size in image */
-    padding: 0.75rem 1.25rem; /* Adjust padding to match buttons in image */
+  .subheading {
+    display: inline-block;
+    margin-bottom: calc(var(--flow-space) / 2);
+    position: relative;
 
-    &:hover {
-      color: var(--hero-accent-color);
-    }
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #f7e144;
 
-    &--outlined {
-      --button-background-color: transparent;
-      --button-text-color: var(--hero-text-color);
-      --button-border-color: var(--hero-text-color);
-
-      &:hover {
-        --button-background-color: var(--hero-text-color);
-        --button-text-color: var(--hero-dark-bg);
+      @media (min-width: $breakpoint-tablet) {
+        right: auto;
       }
     }
   }
 
-  .imageContainer {
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
+  .heading {
+    margin-bottom: 0;
+    max-width: 100%;
+
+    @media (min-width: $breakpoint-tablet) {
+      max-width: 90%;
+    }
+  }
+
+  .intro-text {
+    font-size: var(--font-size-body-large);
+    line-height: var(--line-height-body);
+    margin-bottom: var(--flow-space);
+
+    @media (min-width: $breakpoint-tablet) {
+      text-align: right;
+    }
+  }
+
+  .services-row {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+  }
+
+  .service-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    flex: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      border-bottom: none;
+      text-align: left;
+      align-items: flex-start;
+
+      &:not(:first-child) {
+        border-left: 2px solid rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+
+  .icon-wrapper {
+    margin-bottom: 15px;
     display: flex;
     justify-content: center;
-    margin-top: -100px; /* Increased overlap for better match to image */
-    background-color: white;
-    position: relative;
-    z-index: 1;
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      justify-content: flex-start;
+    }
   }
 
-  .heroImage {
-    width: 85%;
-    height: auto;
-    display: block;
-    object-fit: cover;
+  .service-icon {
+    color: #a3e635;
+    height: 40px;
+    width: 40px;
+    fill: #a3e635;
+  }
 
-    @media (max-width: $breakpoint-tablet) {
-      width: 100%;
+  .service-title {
+    font-size: var(--font-size-h5);
+    margin-bottom: 10px;
+    text-align: center;
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      text-align: left;
+    }
+  }
+
+  .service-description {
+    color: var(--color-text-muted);
+    margin: 0;
+    text-align: center;
+    max-width: 90%;
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      text-align: left;
+      max-width: 100%;
     }
   }
 }
