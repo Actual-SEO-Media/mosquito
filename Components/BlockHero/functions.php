@@ -2,8 +2,6 @@
 
 namespace Flynt\Components\BlockHero;
 
-use Flynt\FieldVariables;
-
 function getACFLayout(): array
 {
     return [
@@ -67,17 +65,7 @@ function getACFLayout(): array
                         'return_format' => 'array',
                     ],
                 ],
-            ],
-            [
-                'label' => __('Hero Image', 'flynt'),
-                'instructions' => __('Image-Format: JPG, PNG, SVG, WebP.', 'flynt'),
-                'name' => 'backgroundImage',
-                'type' => 'image',
-                'preview_size' => 'medium',
-                'required' => 1,
-                'mime_types' => 'jpg,jpeg,png,svg,webp',
             ]
-
         ]
     ];
 }
