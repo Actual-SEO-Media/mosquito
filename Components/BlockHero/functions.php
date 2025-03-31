@@ -76,23 +76,8 @@ function getACFLayout(): array
                 'preview_size' => 'medium',
                 'required' => 1,
                 'mime_types' => 'jpg,jpeg,png,svg,webp',
-            ],
-            [
-                'label' => __('Options', 'flynt'),
-                'name' => 'optionsTab',
-                'type' => 'tab',
-                'placement' => 'top',
-                'endpoint' => 0
-            ],
-            [
-                'label' => '',
-                'name' => 'options',
-                'type' => 'group',
-                'layout' => 'row',
-                'sub_fields' => [
-                    FieldVariables\getTheme()
-                ]
             ]
+
         ]
     ];
 }
