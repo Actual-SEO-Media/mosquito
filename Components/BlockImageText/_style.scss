@@ -3,7 +3,8 @@ flynt-component[name='BlockImageText'] {
     .container {
       align-items: center;
       display: flex;
-      gap: var(--column-gap);
+      gap: 5em;
+      row-gap: 5em;
       justify-content: space-around;
 
       > * {

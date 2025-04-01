@@ -34,6 +34,8 @@
       </figure>
     {% endif %}
     <div data-size="medium" data-align="center">
+       <span class="pre-heading">{{ subheading|e }}</span>
+       <h2 class="title">{{ title|e }}</h2>
       {{ contentHtml|e('wp_kses_post') }}
     </div>
   </div>

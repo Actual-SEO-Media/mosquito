@@ -35,6 +35,20 @@ function getACFLayout(): array
                 'required' => 1,
                 'mime_types' => 'jpg,jpeg,png,svg,webp',
             ],
+             [
+                'label' => __('Subheading', 'flynt'),
+                'name' => 'subheading',
+                'type' => 'text',
+                'default_value' => 'Our approach',
+                'required' => 1,
+            ],
+               [
+                'label' => __('Title', 'flynt'),
+                'name' => 'title',
+                'type' => 'text',
+                'default_value' => 'Our approach',
+                'required' => 1,
+            ],
             [
                 'label' => __('Text', 'flynt'),
                 'name' => 'contentHtml',
