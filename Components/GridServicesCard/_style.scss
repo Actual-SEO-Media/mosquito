@@ -59,9 +59,16 @@ flynt-component[name='GridServicesCard'] {
     gap: 1.5em;
     width: 100%;
 
+  &.no-image {
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      grid-template-columns: 1fr; // Full width for cards
+    }
+  }
+
     @media (min-width: $breakpoint-tablet-horizontal) {
       grid-template-columns: 30% 70%;
     }
+
   }
 
   .featured-image-container {

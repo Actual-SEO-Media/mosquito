@@ -20,7 +20,7 @@
     </div>
 
     <!-- Main Layout -->
-    <div class="layout-container">
+    <div class="layout-container {{ not featuredImage ? 'no-image' : '' }}">
       <!-- Featured Image -->
       {% if featuredImage %}
         <div class="featured-image-container">

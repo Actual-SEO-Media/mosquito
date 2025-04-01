@@ -12,6 +12,12 @@ if (!defined('WP_ENV')) {
     define('WP_ENVIRONMENT_TYPE', WP_ENV);
 }
 
+function my_own_mime_types( $mimes ) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter( 'upload_mimes', 'my_own_mime_types' );
+
 // Check if the required plugins are installed and activated.
 // If they aren't, this function redirects the template rendering to use
 // plugin-inactive.php instead and shows a warning in the admin backend.

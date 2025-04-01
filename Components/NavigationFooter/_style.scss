@@ -1,26 +1,96 @@
 flynt-component[name='NavigationFooter'] {
-  font-size: var(--font-size-body-small);
+  .wrapper {
+    font-size: var(--font-size-body-small);
+    padding-block: var(--component-spacing);
+  }
 
   .container {
-    padding-block: var(--component-spacing);
+    margin-inline: auto;
+    max-inline-size: var(--content-max-width-full);
+    padding-inline: var(--container-spacing);
+  }
+
+  /* Locations grid layout */
+  .locations {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--flow-space);
+    margin-bottom: var(--component-spacing);
+
+    @media (min-width: $breakpoint-tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .location-column {
+    h3 {
+      font-size: var(--font-size-h5);
+      margin-bottom: 1rem;
+    }
+
+    address {
+      font-style: normal;
+      line-height: 1.6;
+      margin-bottom: var(--flow-space);
+    }
+
+    a {
+      color: var(--color-text);
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--color-accent);
+      }
+    }
+  }
+
+  /* Footer bottom with navigation and copyright */
+  .footer-bottom {
+    border-top: 1px solid var(--color-border-secondary);
+    padding-top: var(--flow-space);
     text-align: center;
 
     @media (min-width: $breakpoint-tablet) {
       display: flex;
-      flex-direction: row-reverse;
       justify-content: space-between;
-      padding-block: 36px;
+      text-align: left;
     }
   }
 
-  .content {
-    margin-block: var(--flow-space) 0;
-    margin-inline: 0;
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    list-style: none;
+    margin-bottom: var(--flow-space);
+    padding: 0;
 
     @media (min-width: $breakpoint-tablet) {
-      margin: 0;
+      justify-content: flex-start;
+      margin-bottom: 0;
+    }
+
+    .link {
+      color: var(--color-text);
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--color-accent);
+      }
     }
   }
 
-  @import 'Partials/menu';
+  .copyright {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+  }
 }

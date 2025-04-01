@@ -2,8 +2,6 @@
 
 namespace Flynt\Components\BlockApproachText;
 
-use Flynt\FieldVariables;
-
 function getACFLayout(): array
 {
     return [
@@ -102,7 +100,36 @@ function getACFLayout(): array
                     ],
                 ]
             ],
-
+            [
+                'label' => __('Options', 'flynt'),
+                'name' => 'optionsTab',
+                'type' => 'tab',
+                'placement' => 'top',
+                'endpoint' => 0
+            ],
+            [
+                'label' => '',
+                'name' => 'options',
+                'type' => 'group',
+                'layout' => 'row',
+                'sub_fields' => [
+                    [
+                        'label' => __('Theme', 'flynt'),
+                        'name' => 'theme',
+                        'type' => 'select',
+                        'allow_null' => 0,
+                        'multiple' => 0,
+                        'ui' => 1,
+                        'ajax' => 0,
+                        'choices' => [
+                            'dark' => __('Dark', 'flynt'),
+                            'light' => __('Light', 'flynt'),
+                            'reset' => __('None', 'flynt'),
+                        ],
+                        'default_value' => 'dark',
+                    ]
+                ]
+            ]
         ]
     ];
 }
