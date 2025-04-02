@@ -49,6 +49,18 @@
               <li>
                 <div class="card {{ options.showBorder ? 'boxBorder' : '' }}">
                   <a href="{{ card.link.url|e('esc_url') }}" class="card-inner" {{ card.link.target ? 'target="' ~ card.link.target ~ '"' }}>
+                  {% if options.showArrow %}
+                    <div class="content">
+                      <h3 class="title">{{ card.title|e }}</h3>
+                      <div class="arrow-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                          <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                      </div>
+                  {% endif %}
+                      {% if card.description %}
+                        <p class="description">{{ card.description|e }}</p>
+                      {% endif %}
                     {% if card.icon %}
                       <div class="icon-container">
                         {% if card.icon.post_mime_type == 'image/svg+xml' %}
@@ -69,22 +81,6 @@
                         {% endif %}
                       </div>
                     {% endif %}
-
-                    <div class="content">
-                      <h3 class="title">{{ card.title|e }}</h3>
-
-                      {% if card.description %}
-                        <p class="description">{{ card.description|e }}</p>
-                      {% endif %}
-
-                      {% if options.showArrow %}
-                        <div class="arrow-icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                          </svg>
-                        </div>
-                      {% endif %}
                     </div>
                   </a>
                 </div>
