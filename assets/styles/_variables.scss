@@ -86,7 +86,7 @@ $breakpoint-large-desktop: 1600px;
   --content-max-width-full: 1200px;
 
   /* Spacing Scales */
-  --box-spacing: clamp(1rem, 2.50vw + 0.25rem, 2.25rem);
+  --box-spacing: clamp(0.5rem, 2.25vw, 2rem);
   --container-spacing: clamp(1rem, 2.5vw + 0.25rem, 2.25rem);
   --component-spacing: clamp(3rem, 6.5vw + 1.05rem, 6.25rem);
 
