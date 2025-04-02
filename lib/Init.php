@@ -20,6 +20,8 @@ class Init
         Defaults::init();
         Options::init();
         Timber\Timber::init();
+        SvgSupport::register();
+
 
         // Fronted related actions.
         if (!is_admin()) {

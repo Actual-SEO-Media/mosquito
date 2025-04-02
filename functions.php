@@ -30,3 +30,4 @@ add_action('after_setup_theme', function (): void {
     // Translations can be filed in the /languages/ directory.
     load_theme_textdomain('flynt', get_template_directory() . '/languages');
 });
+
