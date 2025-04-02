@@ -170,7 +170,7 @@ function getACFLayout(): array
                         'label' => __('Max Columns', 'flynt'),
                         'name' => 'maxColumns',
                         'type' => 'number',
-                        'default_value' => 4,
+                        'default_value' => 2,
                         'min' => 1,
                         'max' => 4,
                         'step' => 1

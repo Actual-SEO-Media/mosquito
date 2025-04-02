@@ -2,107 +2,118 @@ flynt-component[name='GridServicesCard'] {
   .section-header {
     display: flex;
     flex-direction: column;
-    margin-bottom: calc(var(--component-spacing) / 2);
+    margin-bottom: 5em;
 
     @media (min-width: $breakpoint-tablet) {
-      flex-direction: row;
-      gap: var(--column-gap);
+      display: grid;
+      grid-template-columns: 30% 70%;
+      gap: 1.5em;
+    }
+  }
+
+  .header-left {
+    margin-bottom: 1rem;
+
+    @media (min-width: $breakpoint-tablet) {
+      margin-bottom: 0;
     }
 
-    &.has-feature-image {
-      .header-content {
-        @media (min-width: $breakpoint-tablet) {
-          width: 60%;
-        }
+    .pre-title {
+      color: var(--color-accent);
+      font-size: var(--font-size-h5);
+      margin: 0;
+      position: relative;
+      padding-bottom: 0.5rem;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 100%;
+        max-width: 120px;
+        background-color: var(--color-accent);
       }
     }
   }
-  .layout-container {
-    display: flex;
-    flex-direction: column-reverse;
-    width: 100%;
 
-    @media (min-width: $breakpoint-tablet-horizontal) {
-      flex-direction: row;
-      gap: var(--column-gap);
+  .header-content {
+
+    h2 {
+      margin-top: 0;
+    }
+
+    p {
+      margin-bottom: 1.5em;
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+      max-width: 75%;
     }
   }
-  .featured-image-container {
-    margin-top: var(--flow-space);
-    margin-bottom: 0;
+
+  .layout-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5em;
     width: 100%;
 
     @media (min-width: $breakpoint-tablet-horizontal) {
-      margin-top: 0;
-      width: 34%;
+      grid-template-columns: 30% 70%;
+    }
+  }
+
+  .featured-image-container {
+    order: 2;
+    width: 100%;
+
+    @media (min-width: $breakpoint-tablet-horizontal) {
+      order: 1;
     }
   }
 
   .cards-container {
+    order: 1;
     width: 100%;
 
     @media (min-width: $breakpoint-tablet-horizontal) {
-      width: 66%;
+      order: 2;
     }
 
     &.full-width {
-      width: 100%;
+      grid-column: 1 / -1;
     }
   }
 
   .featured-figure {
-    border-radius: var(--border-radius-medium);
     margin: 0;
     overflow: hidden;
     position: relative;
+    height: 100%;
   }
 
   .featured-image,
   .featured-image-svg {
     display: block;
-    height: auto;
-    max-width: 100%;
+    height: 100%;
     width: 100%;
     object-fit: cover;
   }
 
-  .header-content {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-    h2 {
-      display: inline-block;
-      padding: 0.25rem 0.5rem;
-    }
-  }
   .grid {
-    --grid-columns: 1;
-    display: grid;
-    gap: var(--column-gap);
-    grid-template-columns: repeat(var(--grid-columns), minmax(250px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
     list-style: none;
     margin: 0;
     padding: 0;
 
-    @media (min-width: $breakpoint-tablet) {
-      --grid-columns: 2;
-    }
+    li {
+      flex: 0 0 100%;
 
-    &[data-max-columns='1'],
-    &[data-max-columns='2'],
-    &[data-max-columns='3'],
-    &[data-max-columns='4'] {
       @media (min-width: $breakpoint-tablet) {
-        --grid-columns: 2;
-      }
-
-      @media (min-width: $breakpoint-tablet-horizontal) {
-        --grid-columns: 2;
-      }
-
-      @media (min-width: $breakpoint-desktop) {
-        --grid-columns: 2;
+        flex: 0 0 calc(50% - (var(--column-gap) / 2)); // Two columns on tablet and up
       }
     }
 
@@ -113,8 +124,8 @@ flynt-component[name='GridServicesCard'] {
 
   .card {
     background-color: var(--color-background);
-    border-radius: var(--border-radius-medium);
     overflow: hidden;
+    height: 100%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     &.boxBorder {
@@ -147,15 +158,6 @@ flynt-component[name='GridServicesCard'] {
     margin-top: calc(var(--flow-space) / 2);
     padding-right: var(--box-spacing);
     width: 100%;
-  }
-
-  .icon,
-  .icon-svg {
-    height: auto;
-    max-height: 80px;
-    max-width: 80px;
-    object-fit: contain;
-    width: auto;
   }
 
   .content {
