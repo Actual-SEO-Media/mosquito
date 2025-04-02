@@ -1,0 +1,26 @@
+.post-content{
+    padding-top: 100px;;
+    background-color: #f0f9f3b3;
+
+    .container{
+        max-width: 920px;
+    }
+
+    .alignleft{
+        float: left;
+        margin: var(--flow-space) 20px 20px 0;
+
+        & + *{
+            margin-block-start: var(--flow-space);
+        }
+    }
+
+    .alignright{
+        float: right;
+        margin: var(--flow-space)  0 20px 20px;
+
+        & + *{
+            margin-block-start: var(--flow-space);
+        }
+    }
+}

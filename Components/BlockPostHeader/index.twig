@@ -1,34 +1,65 @@
 <flynt-component name="BlockPostHeader" {{ not post.thumbnail ? 'data-thumbnail="false"' }}>
-  <div class="blog-template-wrapper" data-size="full" data-theme="dark">
-    <div class="blog-hero-title-wrap w-layout-vflex" data-size="medium" data-align="center">
-      {% if post.category %}
-          <a class="sidebar-category" href="{{ post.category.link|e('esc_url') }}">
-            <span class="visuallyHidden">{{ labels.postedIn|e }}</span>
-            <small>{{ post.category }}</small>
-          </a>
+  <div class="post-header-info">
+    <div class="container">
+      <div class="post-header-top-row">
+        {% if post.category %}
+          <div class="post-header-cat">
+            <a href="{{ post.category.link|e('esc_url') }}">
+              {{ post.category }}
+            </a>
+          </div>
         {% endif %}
-        <span class="readingtime">
-          <small>{{ labels.readingTime|replace({'%d': post.content|readingtime})|e }}</small>
-        </span>
-      <h1 class="h1">{{ post.title }}</h1>
-      <p class="meta">
-        <a class="author" href="{{ post.author.link|e('esc_url') }}">
+        <div class="post-header-top-date"><span><svg viewBox="0 0 448 512"><path d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40L64 64C28.7 64 0 92.7 0 128l0 16 0 48L0 448c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-256 0-48 0-16c0-35.3-28.7-64-64-64l-40 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40L152 64l0-40zM48 192l352 0 0 256c0 8.8-7.2 16-16 16L64 464c-8.8 0-16-7.2-16-16l0-256z"/></svg></span>{{ post.date|date("M j, Y") }}</div>
+      </div>
+      <h1>{{ post.title }}</h1>
+      <div class="post-header-author">
+        <div class="post-header-author-avatar">
           {% if post.author.avatar %}
-            <img class="avatar lazyload"
+            <img class="lazyload"
               src="{{ placeholderImage(48, 48) }}"
-              data-src="{{ post.author.avatar({size: 96}) }}"
+              data-src="{{ post.author.avatar({size: 48}) }}"
               width="48"
               height="48"
               alt="{{ post.author.name|e }}">
           {% endif %}
-          <span class="visuallyHidden">{{ labels.postedBy|e }}</span>
-          <small>{{ post.author.name }}</small>
-        </a>
-
-      </p>
+        </div>
+        <div class="post-header-author-info">
+          {{ post.author.name }}
+        </div>
+      </div>
     </div>
   </div>
-  {% if post.thumbnail %}
-    {{ renderComponent('BlockImage', {image: post.thumbnail, options: {size: 'full'}, noComponentSpacing: true}) }}
-  {% endif %}
+  <div class="post-header-thumb">
+    <div class="container">
+      {% if post.thumbnail %}
+        {% if post.thumbnail.post_mime_type == 'image/svg+xml' %}
+          <img
+            class="figure-image-svg lazyload"
+            src="{{ placeholderImage(post.thumbnail.width, post.thumbnail.height, 'rgba(125, 125, 125, 0.1)') }}"
+            width="{{ post.thumbnail.width }}"
+            height="{{ post.thumbnail.height }}"
+            data-src="{{ post.thumbnail.src }}"
+            alt="{{ post.thumbnail.alt|e }}"
+          >
+        {% else %}
+          <img
+            class="figure-image lazyload"
+            src="{{ post.thumbnail.src|resizeDynamic(768) }}"
+            width="{{ post.thumbnail.width }}"
+            height="{{ post.thumbnail.height }}"
+            srcset="{{ placeholderImage(post.thumbnail.width, post.thumbnail.height, 'rgba(125, 125, 125, 0.1)') }}"
+            data-srcset="
+              {{ post.thumbnail.src|resizeDynamic(1920) }} 1920w,
+              {{ post.thumbnail.src|resizeDynamic(1600) }} 1600w,
+              {{ post.thumbnail.src|resizeDynamic(1440) }} 1440w,
+              {{ post.thumbnail.src|resizeDynamic(1366) }} 1366w,
+              {{ post.thumbnail.src|resizeDynamic(1024) }} 1024w,
+              {{ post.thumbnail.src|resizeDynamic(768) }} 768w,
+              {{ post.thumbnail.src|resizeDynamic(640) }} 640w"
+            data-sizes="auto"
+            alt="{{ post.thumbnail.alt|e }}">
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
 </flynt-component>
