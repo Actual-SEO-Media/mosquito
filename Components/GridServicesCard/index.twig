@@ -5,7 +5,6 @@
       <div class="header-left">
         <h3 class="pre-title">Our services</h3>
       </div>
-
       <div class="header-content">
         {% if preContentHtml %}
           {{ preContentHtml|e('wp_kses_post') }}
@@ -18,9 +17,8 @@
         {% endif %}
       </div>
     </div>
-
     <!-- Main Layout -->
-    <div class="layout-container">
+    <div class="layout-container {% if not featuredImage %}no-featured-image{% endif %}">
       <!-- Featured Image -->
       {% if featuredImage %}
         <div class="featured-image-container">
@@ -43,9 +41,8 @@
           </figure>
         </div>
       {% endif %}
-
       <!-- Service Cards -->
-      <div class="cards-container">
+      <div class="cards-container {% if not featuredImage %}full-width{% endif %}">
         <ul class="grid">
           {% for card in serviceCards %}
             {% if card.title or card.description %}
