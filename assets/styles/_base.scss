@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5, h6,
   font-family: var(--font-family-heading);
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-heading);
-  color: var( --color-text);
+  color:var(--title-color);
 }
 
 h1,
@@ -305,7 +305,7 @@ table {
   .button-cta {
     background-color: var(--color-accent);
     border: none;
-    color: var(--color-background);
+    color: white;
     display: inline-block;
     font-family: var(--font-family-text);
     font-size: var(--font-size-body-small);
