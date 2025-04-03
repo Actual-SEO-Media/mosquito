@@ -2,7 +2,7 @@
 
 {% block content %}
   {% if post.content %}
-  {{ renderComponent('BlockPageContent', {post: post}) }}
+    {{ renderComponent('BlockPageContent', {post: post}) }}
   {% endif %}
   {% for component in post.meta('pageComponents') %}
     {{ renderComponent(component) }}
