@@ -1,0 +1,92 @@
+.page-content{
+    background-color: #f0f9f3b3;
+
+    section{
+        padding: 0 !important;
+    }
+
+    .items+.items{
+        margin-top: 40px;
+    }
+
+    .items{
+        background-image: none !important;
+    }
+
+    .two-column{
+        grid-template-columns: 1fr 1fr;
+        display: grid;
+        gap: 40px;
+    }
+
+    .wedocontainer{
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    .alignright{
+        float: right;
+        margin: var(--flow-space)  0 20px 20px;
+
+        & + *{
+            margin-block-start: var(--flow-space);
+        }
+    }
+
+    .alignleft{
+        float: left;
+        margin: var(--flow-space) 20px 20px 0;
+
+        & + *{
+            margin-block-start: var(--flow-space);
+        }
+    }
+
+    .aligncenter{
+        margin: 20px auto 0;
+
+        & + *{
+            margin-block-start: var(--flow-space);
+        }
+    }
+}
+
+.page-header-title{
+    background-color: #0c2218;
+    padding: 60px 0;
+    text-align: center;
+    color: #fff;
+    
+    h1{
+        font-size: 60px;
+        color: #fff;
+    }
+
+    p{
+        font-size: 18px;
+    }
+}
+
+.page-header-image{
+    position: relative;
+
+    &::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background-color: #0c2218;
+        z-index: 1;
+    }
+
+    img{
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.page-content-content{
+    padding: 40px 0 0 0;
+}
