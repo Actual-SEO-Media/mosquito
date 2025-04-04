@@ -41,3 +41,10 @@ add_action('wp_enqueue_scripts', function (): void {
     wp_dequeue_style('wp-global-styles');
     wp_dequeue_style('block-style-variation-styles');
 });
+
+add_filter('use_block_editor_for_post_type', function ($use_block_editor, $post_type) {
+    if (in_array($post_type, ['post', 'page'])) {
+        return false;
+    }
+    return $use_block_editor;
+}, 10, 2);
