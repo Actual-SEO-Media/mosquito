@@ -6,6 +6,8 @@ use Timber\Timber;
 
 add_filter('wp_insert_post_data', function (array $data, array $postArr): array {
     $excludedPostTypes = [
+        'post',
+        'page',
         'attachment',
         'revision',
         'custom_css',
