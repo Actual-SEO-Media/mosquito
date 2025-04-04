@@ -29,7 +29,6 @@ add_action('Flynt/afterRegisterComponents', function (): void {
                     Components\FAQ\getACFLayout(),
                     Components\SideBySide\getACFLayout(),
                     Components\GridServicesCard\getACFLayout(),
-                    Components\BlockHero\getACFLayout(),
                     Components\BlockApproachText\getACFLayout()
                 ],
             ],
