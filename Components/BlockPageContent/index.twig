@@ -1,9 +1,14 @@
-{%if hero_content or hero_background_image or post.content %}
+{%if pre_title or hero_content or hero_background_image or post.content %}
     <div class="page-content">
-        {% if hero_content %}
+        {% if pre_title or hero_content %}
             <div class="page-header-title">
                 <div class="container">
-                    {{ hero_content }}
+                    {% if pre_title %}
+                        <div class="sub-title">{{ pre_title }}</div>
+                    {% endif %}
+                    {% if hero_content %}
+                        {{ hero_content }}
+                    {% endif %}
                 </div>
             </div>
         {% endif %}
