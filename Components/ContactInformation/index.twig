@@ -1,0 +1,35 @@
+<flynt-component name="ContactInformation" load:on="visible" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }} aria-labelledby="contactInfo">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-column" role="region" aria-labelledby="locationLabel">
+        <h3 id="locationLabel" class="contactLabel">
+          {{ labels.locationLabel }}
+        </h3>
+        <div class="contactContent">
+          <address>
+            {{ contactInfo.location.content|nl2br }}
+          </address>
+        </div>
+      </div>
+      <div class="contact-column" role="region" aria-labelledby="phonesLabel">
+        <h3 id="phonesLabel" class="contactLabel">
+          {{ labels.phonesLabel }}
+        </h3>
+        <div class="contactContent">
+          <p><a href="tel:{{ contactInfo.phones.primary|replace({' ': '', '(': '', ')': '', '-': ''}) }}" aria-label="Call us at {{ contactInfo.phones.primary }}">{{ contactInfo.phones.primary }}</a></p>
+          {% if contactInfo.phones.secondary %}
+            <p><a href="tel:{{ contactInfo.phones.secondary|replace({' ': '', '(': '', ')': '', '-': ''}) }}" aria-label="Call us at {{ contactInfo.phones.secondary }}">{{ contactInfo.phones.secondary }}</a></p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="contact-column" role="region" aria-labelledby="emailLabel">
+        <h3 id="emailLabel" class="contactLabel">
+          {{ labels.emailLabel }}
+        </h3>
+        <div class="contactContent">
+          <p><a href="mailto:{{ contactInfo.email.address }}" aria-label="Email us at {{ contactInfo.email.address }}">{{ contactInfo.email.address }}</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</flynt-component>

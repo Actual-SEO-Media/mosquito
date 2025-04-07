@@ -1,0 +1,92 @@
+flynt-component[name='ContactInformation'] {
+  --flow-space: var(--spacing-l);
+
+  .container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-m);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-l);
+    margin-bottom: var(--spacing-xl);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: var(--spacing-xl);
+
+    @media (min-width: $breakpoint-tablet) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .contact-column {
+    text-align: center;
+
+    @media (min-width: $breakpoint-tablet) {
+      &:not(:first-child) {
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+
+  .contactLabel {
+    font-size: var(--font-size-h4);
+    font-weight: 700;
+    margin-bottom: var(--spacing-s);
+    color: var(--color-headline);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+
+  .icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--spacing-xs);
+
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+  }
+
+  .contactContent {
+    font-size: var(--font-size-m);
+    line-height: 1.5;
+
+    a {
+      text-decoration: none;
+      color: var(--color-text);
+      transition: color 0.2s ease;
+
+      &:hover, &:focus {
+        color: var(--color-accent);
+        outline: 2px solid var(--color-accent);
+        outline-offset: 2px;
+      }
+    }
+
+    address {
+      font-style: normal;
+      color: var(--color-text);
+    }
+  }
+
+  .visuallyHidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+
+}
