@@ -1,38 +1,45 @@
-<div class="page-content">
-    {% if hero_content %}
-        <div class="page-header-title">
-            <div class="container">
-                {{ hero_content }}
+{%if pre_title or hero_content or hero_background_image or post.content %}
+    <div class="page-content">
+        {% if pre_title or hero_content %}
+            <div class="page-header-title">
+                <div class="container">
+                    {% if pre_title %}
+                        <div class="sub-title">{{ pre_title }}</div>
+                    {% endif %}
+                    {% if hero_content %}
+                        {{ hero_content }}
+                    {% endif %}
+                </div>
             </div>
-        </div>
-    {% endif %}
-    {% if hero_background_image %}
-        <div class="page-header-image">
-            <div class="container">
-                <img
-                    class="lazyload"
-                    src="{{ hero_background_image.src|resizeDynamic(768) }}"
-                    width="{{ hero_background_image.width }}"
-                    height="{{ hero_background_image.height }}"
-                    srcset="{{ placeholderImage(hero_background_image.width, hero_background_image.height, 'rgba(125, 125, 125, 0.1)') }}"
-                    data-srcset="
-                    {{ hero_background_image.src|resizeDynamic(1920) }} 1920w,
-                    {{ hero_background_image.src|resizeDynamic(1600) }} 1600w,
-                    {{ hero_background_image.src|resizeDynamic(1440) }} 1440w,
-                    {{ hero_background_image.src|resizeDynamic(1366) }} 1366w,
-                    {{ hero_background_image.src|resizeDynamic(1024) }} 1024w,
-                    {{ hero_background_image.src|resizeDynamic(768) }} 768w,
-                    {{ hero_background_image.src|resizeDynamic(640) }} 640w"
-                    data-sizes="auto"
-                    alt="{{ hero_background_image.alt|e }}">
+        {% endif %}
+        {% if hero_background_image %}
+            <div class="page-header-image">
+                <div class="container">
+                    <img
+                        class="lazyload"
+                        src="{{ hero_background_image.src|resizeDynamic(768) }}"
+                        width="{{ hero_background_image.width }}"
+                        height="{{ hero_background_image.height }}"
+                        srcset="{{ placeholderImage(hero_background_image.width, hero_background_image.height, 'rgba(125, 125, 125, 0.1)') }}"
+                        data-srcset="
+                        {{ hero_background_image.src|resizeDynamic(1920) }} 1920w,
+                        {{ hero_background_image.src|resizeDynamic(1600) }} 1600w,
+                        {{ hero_background_image.src|resizeDynamic(1440) }} 1440w,
+                        {{ hero_background_image.src|resizeDynamic(1366) }} 1366w,
+                        {{ hero_background_image.src|resizeDynamic(1024) }} 1024w,
+                        {{ hero_background_image.src|resizeDynamic(768) }} 768w,
+                        {{ hero_background_image.src|resizeDynamic(640) }} 640w"
+                        data-sizes="auto"
+                        alt="{{ hero_background_image.alt|e }}">
+                </div>
             </div>
-        </div>
-    {% endif %}
-    <div class="page-content-content">
-        <div class="container">
-            {% if post.content %}
-                {{ post.content }}
-            {% endif %}
-        </div>
+        {% endif %}
+        {% if post.content %}
+            <div class="page-content-content">
+                <div class="container">
+                    {{ post.content }}
+                </div>
+            </div>
+        {% endif %}
     </div>
-</div>
+{% endif %}

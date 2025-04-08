@@ -1,9 +1,7 @@
 {% extends 'templates/_document.twig' %}
 
 {% block content %}
-  {% if post.content %}
-    {{ renderComponent('BlockPageContent', {post: post}) }}
-  {% endif %}
+  {{ renderComponent('BlockPageContent', {post: post}) }}
   {% for component in post.meta('pageComponents') %}
     {{ renderComponent(component) }}
   {% endfor %}
