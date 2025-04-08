@@ -20,18 +20,15 @@ add_filter('Flynt/addComponentData?name=ContactInformation', function (array $da
         'email' => [
             'address' => $contactInfo['email'] ?? '',
             'icon' => Asset::getIcon('envelope')
-        ]
+        ],
+        'social' => array_map(function ($socialMediaItem) {
+            return [
+                'platform' => $socialMediaItem['platform'],
+                'url' => $socialMediaItem['url'],
+                'icon' => Asset::getIcon($socialMediaItem['platform'])
+            ];
+        }, $contactInfo['socialMedia'] ?? [])
     ];
-
-    // Get social media data separately
-    $socialMedia = $contactInfo['socialMedia'] ?? [];
-    $data['socialMedia'] = array_map(function ($item) {
-        return [
-            'platform' => $item['platform'],
-            'url' => $item['url'],
-            'icon' => Asset::getIcon($item['platform'])
-        ];
-    }, $socialMedia);
 
     $data['labels'] = Options::getGlobal('ContactInformation', 'labels');
 

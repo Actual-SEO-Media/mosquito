@@ -22,7 +22,6 @@ class Init
         Timber\Timber::init();
         SvgSupport::register();
 
-
         // Fronted related actions.
         if (!is_admin()) {
             Api::registerHooks();
