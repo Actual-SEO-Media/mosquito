@@ -1,0 +1,13 @@
+{% extends 'templates/_document.twig' %}
+
+{% block content %}
+  <article>
+    <header>
+      {{ renderComponent('BlockPostHeader', {post: post}) }}
+    </header>
+    {{ renderComponent('BlockPostContent', {post: post}) }}
+    <section>
+      {{ renderComponent('GridPostsLatest', {'taxonomies': post.categories(), 'options': {'theme': 'light', 'maxColumns': 3}}) }}
+    </section>
+  </article>
+{% endblock %}
