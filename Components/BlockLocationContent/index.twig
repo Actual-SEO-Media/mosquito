@@ -1,0 +1,35 @@
+<section class="single-location">
+    <div class="container">
+        <h1>{{ post.title }}</h1>
+        <div class="single-location-row">
+            <div class="single-location-left">
+                {{ contact_information }}
+                <div class="single-location-map">
+                    {{ google_map }}
+                </div>
+            </div>
+            <div class="single-location-right">
+                <h2>Hours</h2>
+                <div class="single-location-hours">
+                    <div>Sunday</div>
+                    <div>{{ business_hours.sunday }}</div>
+                    <div>Monday</div>
+                    <div>{{ business_hours.monday }}</div>
+                    <div>Tuesday</div>
+                    <div>{{ business_hours.tuesday }}</div>
+                    <div>Wednesday</div>
+                    <div>{{ business_hours.wednesday }}</div>
+                    <div>Thursday</div>
+                    <div>{{ business_hours.thursday }}</div>
+                    <div>Friday</div>
+                    <div>{{ business_hours.friday }}</div>
+                    <div>Saturday</div>
+                    <div>{{ business_hours.saturday }}</div>
+                </div>
+                <div class="single-location-service">
+                    {{ business_services }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

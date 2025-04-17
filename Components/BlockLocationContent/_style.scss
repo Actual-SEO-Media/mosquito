@@ -1,0 +1,64 @@
+.single-location{
+    padding-top: 50px;
+    background-color: #f0f9f3b3;
+
+    .container{
+        max-width: 920px;
+    }
+}
+
+.single-location-row{
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 50px;
+
+    h1{
+        font-size: 58px;
+        margin: 0;
+    }
+    
+    h2{
+        font-size: 25px;
+        margin: 0;
+    }
+
+    p{
+        margin-top: 10px;
+    }
+}
+
+.single-location-hours{
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 5px;
+}
+
+.single-location-map{
+    position: relative;
+    padding-bottom: 75%;
+    height: 0;
+    overflow: hidden;
+
+    iframe{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+
+.single-location-service{
+    margin-top: 25px;
+    
+    h2{
+        margin-top: 25px;
+    }
+}
+
+@media(max-width: 1000px){
+
+    .single-location-row{
+        grid-template-columns: 1fr;       
+    }
+}
