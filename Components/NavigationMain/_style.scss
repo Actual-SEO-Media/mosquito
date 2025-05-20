@@ -28,9 +28,10 @@ flynt-component[name='NavigationMain']  {
   }
 
   .container {
+    position: relative;
     block-size: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding-block: 34px;
   }
 
